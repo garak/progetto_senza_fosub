@@ -1,0 +1,12 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Registrazione - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <h2>Registrazione</h2>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-primary" type="submit">OK</button>
+    {{ form_end(form) }}
+{% endblock %}

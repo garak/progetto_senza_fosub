@@ -1,0 +1,31 @@
+security:
+    encoders:
+        Dominio\Progetto\Model\Entity\Utente: bcrypt
+
+    providers:
+        progetto:
+            id: App\Repository\UtenteRepository
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            pattern: ^/
+            form_login:
+                check_path: /login_check
+                login_path: /login
+            logout:
+                path: /logout
+                target: /
+            anonymous: true
+            switch_user: true
+            remember_me:
+                secret: '%env(APP_SECRET)%'
+                lifetime: 604800
+
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registrazione, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, roles: ROLE_USER }

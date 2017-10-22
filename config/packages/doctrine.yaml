@@ -1,0 +1,22 @@
+doctrine:
+    dbal:
+        url: '%env(APP_DATABASE_URL)%'
+        server_version: 5.7
+        types:
+            uuid: Ramsey\Uuid\Doctrine\UuidType
+    orm:
+        auto_generate_proxy_classes: '%kernel.debug%'
+        auto_mapping: false
+        mappings:
+            entity:
+                dir: '%kernel.project_dir%/config/doctrine/entity'
+                is_bundle: false
+                prefix: Dominio\Progetto\Model\Entity
+                type: xml
+            # al momento non ci sono ValueObject, ma poi probabilmente arriveranno...
+            value_object:
+                dir: '%kernel.project_dir%/config/doctrine/value_object'
+                is_bundle: false
+                prefix: Dominio\Progetto\Model\ValueObject
+                type: xml
+        naming_strategy: doctrine.orm.naming_strategy.underscore

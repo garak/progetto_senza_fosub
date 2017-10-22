@@ -1,0 +1,10 @@
+Salve {{ utente }},
+la registrazione richiede una conferma.
+Si prega di seguire il seguente collegamento per confermare il proprio indirizzo email
+e completare la registrazione
+
+{{ url('registrazione_conferma', {token: utente.tokenConferma}) }}
+
+Grazie
+--
+{{ url('homepage') }}

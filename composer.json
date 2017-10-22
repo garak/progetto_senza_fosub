@@ -1,0 +1,77 @@
+{
+    "name": "garak/progetto-senza-fosub",
+    "license": "MIT",
+    "type": "project",
+    "description": "Un progetto che non usa FOSUserBundle",
+    "authors": [
+        {
+            "name": "Massimiliano Arione",
+            "email": "garakkio@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "Dominio\\": "src/Dominio", "App\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
+    "require": {
+        "php": "^7.1",
+        "ramsey/uuid-doctrine": "^1.2",
+        "sensio/distribution-bundle": "^5.0",
+        "sensio/framework-extra-bundle": "^4.0",
+        "simple-bus/symfony-bridge": "^5.0",
+        "symfony/asset": "^3.3",
+        "symfony/console": "^3.3",
+        "symfony/form": "^3.3",
+        "symfony/framework-bundle": "^3.3",
+        "symfony/monolog-bundle": "^3.1",
+        "symfony/orm-pack": "^1.0",
+        "symfony/routing": "^3.3",
+        "symfony/security-bundle": "^3.3",
+        "symfony/swiftmailer-bundle": "^3.0",
+        "symfony/templating": "^3.3",
+        "symfony/twig-bundle": "^3.3",
+        "symfony/validator": "^3.3",
+        "symfony/yaml": "^3.3",
+        "twig/extensions": "^1.4"
+    },
+    "require-dev": {
+        "beelab/test-bundle": "^2.0",
+        "dama/doctrine-test-bundle": "^3.0",
+        "doctrine/doctrine-fixtures-bundle": "^2.3",
+        "friendsofphp/php-cs-fixer": "^2.0",
+        "phpunit/phpunit": "^6.2",
+        "symfony/browser-kit": "^3.3",
+        "symfony/css-selector": "^3.3",
+        "symfony/debug-bundle": "^3.3",
+        "symfony/dotenv": "^3.3",
+        "symfony/phpunit-bridge": "^3.3",
+        "symfony/profiler-pack": "^1.0",
+        "symfony/var-dumper": "^3.3"
+    },
+    "scripts": {
+        "symfony-scripts": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-install-cmd": [
+            "@symfony-scripts"
+        ],
+        "post-update-cmd": [
+            "@symfony-scripts"
+        ]
+    },
+    "config": {
+        "bin-dir": "bin",
+        "sort-packages": true
+    },
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-bin-dir": "bin",
+        "symfony-var-dir": "var",
+        "symfony-web-dir": "public",
+        "symfony-tests-dir": "tests",
+        "symfony-assets-install": "relative"
+    }
+}

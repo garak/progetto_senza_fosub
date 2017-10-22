@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<constraint-mapping xmlns="http://symfony.com/schema/dic/constraint-mapping"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
+
+    <class name="Dominio\Progetto\Command\Utente\RegistraCommand">
+        <constraint name="App\Validator\Constraints\UniqueUser"/>
+        <property name="email">
+            <constraint name="NotBlank" />
+            <constraint name="Email"/>
+            <constraint name="Length">
+                <option name="max">255</option>
+            </constraint>
+        </property>
+        <property name="password">
+            <constraint name="NotBlank" />
+            <constraint name="Length">
+                <option name="min">8</option>
+                <option name="max">50</option>
+            </constraint>
+        </property>
+        <property name="nome">
+            <constraint name="NotBlank" />
+            <constraint name="Length">
+                <option name="max">100</option>
+            </constraint>
+        </property>
+        <property name="cognome">
+            <constraint name="NotBlank" />
+            <constraint name="Length">
+                <option name="max">100</option>
+            </constraint>
+        </property>
+    </class>
+</constraint-mapping>

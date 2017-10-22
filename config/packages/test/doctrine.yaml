@@ -1,0 +1,3 @@
+doctrine:
+    dbal:
+        url: '%env(APP_TEST_DATABASE_URL)%'

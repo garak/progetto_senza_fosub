@@ -1,0 +1,8 @@
+parameters:
+    domain: '%env(APP_DOMAIN)%'
+
+framework:
+    test: ~
+    session:
+        storage_id: session.storage.mock_file
+

@@ -1,0 +1,9 @@
+/.env
+/.php_cs.cache
+/bin/
+!bin/console
+/phpunit.xml
+/public/bundles/
+/var/
+!var/.gitkeep
+/vendor/

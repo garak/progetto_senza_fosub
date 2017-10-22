@@ -1,0 +1,12 @@
+controllers:
+    # XXX this path is relative to Kernel, not to this file!
+    resource: Controller/
+    type: annotation
+
+login_check:
+    path: /login_check
+    methods: POST
+    
+logout:
+    path: /logout
+    methods: GET
