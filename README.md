@@ -41,6 +41,9 @@ php 7.1), si può usare la configurazione fornita per Docker.
 * per entrare nella macchina, eseguire `docker exec -ti progetto_php_1 bash`
   (il nome "progetto" dipende dal nome della cartella in cui si è clonato il repo)
 
+Per navigare l'applicazione, Occorre mappare il nome `progetto.local` su 127.0.0.1 nel proprio file hosts.
+L'applicazione sarà quindi visibile all'indirizzo `http://progetto.local:8080`.
+
 È disponibile un container per eseguire i test, con nome `progetto_phpunit_1 bash`
 (vedere nota precedente riguardo al nome effettivo).
 In questo container si possono eseguire le istruzioni relative al paragrafo precedente.
