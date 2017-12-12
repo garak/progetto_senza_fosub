@@ -7,6 +7,9 @@ Nasce dal feedback ricevuto in seguito alla mia presentazione al SymfonyDay 2017
 che molti partecipanti, pur cogliendo l'essenza del discorso, abbiano sofferto la mancanza di
 esempi pratici
 
+[![video](https://i.vimeocdn.com/video/670922426_295x166.jpg)](https://vimeo.com/246059701)
+<a href="https://www.slideshare.net/garak/disinstallare-fos-user-bundle-e-vivere-felici"><img src="https://image.slidesharecdn.com/versionesocialdisinstallarefosuserbundleeviverefelici-171022101158/95/disinstallare-fos-user-bundle-e-vivere-felici-1-638.jpg" width="295"></a>
+
 Installazione
 -------------
 
@@ -78,4 +81,5 @@ Restano da implementare:
 * recupero password
 
 Ma spero comunque che il concetto espresso nella presentazione sia chiaro ugualmente.
+
 
