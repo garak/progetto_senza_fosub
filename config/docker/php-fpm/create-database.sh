@@ -8,12 +8,9 @@ do
 
         echo "create and populate database"
         cd /user/progetto
-        php bin/console do:da:cr
+        php bin/console do:da:cr --if-not-exists
         php bin/console do:s:u --force
         php bin/console do:fi:lo -n
-
-        # we still do not use encore...
-        #bin/encore dev --watch
 
         exec "$@";
     else

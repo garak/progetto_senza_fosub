@@ -15,13 +15,13 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 /**
  * @Route("/registrazione")
  */
-class RegistrazioneController extends AbstractController
+final class RegistrazioneController extends AbstractController
 {
     /**
      * @Route("", name="registrazione")
      * @Method({"GET", "POST"})
      */
-    public function registrazioneAction(MessageBus $bus, Request $request): Response
+    public function registrazione(MessageBus $bus, Request $request): Response
     {
         if ($this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('homepage');
@@ -41,7 +41,7 @@ class RegistrazioneController extends AbstractController
      * @Route("/ok", name="registrazione_ok")
      * @Method({"GET"})
      */
-    public function okAction(): Response
+    public function ok(): Response
     {
         if ($this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('homepage');
@@ -54,7 +54,7 @@ class RegistrazioneController extends AbstractController
      * @Route("/conferma/{token}", name="registrazione_conferma")
      * @Method({"GET"})
      */
-    public function confermaAction(string $token, MessageBus $bus, Request $request): Response
+    public function conferma(string $token, MessageBus $bus, Request $request): Response
     {
         if ($this->isGranted('ROLE_USER')) {
             return $this->redirectToRoute('homepage');

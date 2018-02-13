@@ -11,13 +11,13 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 
-class AuthController extends AbstractController
+final class AuthController extends AbstractController
 {
     /**
      * @Route("/login", name="login")
      * @Method("GET")
      */
-    public function loginAction(LoggerInterface $logger, Request $request): Response
+    public function login(LoggerInterface $logger, Request $request): Response
     {
         if ($this->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $this->redirectToRoute('homepage');
@@ -29,20 +29,11 @@ class AuthController extends AbstractController
         ]);
     }
 
-    /**
-     * @param LoggerInterface $logger
-     * @param Request         $request
-     *
-     * @return \Exception|null
-     */
-    private function getLoginError(LoggerInterface $logger, Request $request)
+    private function getLoginError(LoggerInterface $logger, Request $request): ?\Exception
     {
-        if ($request->attributes->has(Security::AUTHENTICATION_ERROR)) {
-            $error = $request->attributes->get(Security::AUTHENTICATION_ERROR);
-        } else {
-            $error = $request->getSession()->get(Security::AUTHENTICATION_ERROR);
-            $request->getSession()->remove(Security::AUTHENTICATION_ERROR);
-        }
+        $session = $request->getSession();
+        $error = $session->get(Security::AUTHENTICATION_ERROR);
+        $session->remove(Security::AUTHENTICATION_ERROR);
         // see https://github.com/symfony/symfony/issues/837#issuecomment-3000155
         if ($error instanceof \Exception && !$error instanceof AuthenticationException) {
             $logger->log('error', $error->getMessage());

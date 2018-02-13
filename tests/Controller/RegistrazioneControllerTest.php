@@ -69,6 +69,7 @@ class RegistrazioneControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/registrazione/conferma/afaketoken');
         $crawler = $this->client->followRedirect();
+        $crawler = $this->client->followRedirect();
         $this->assertTrue($this->client->getResponse()->isOk());
         // TODO il menu utente non c'è ancora
         //$this->assertCount(1, $crawler->filter('.navbar-right i.fa-user-circle'));
