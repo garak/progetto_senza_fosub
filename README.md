@@ -41,20 +41,19 @@ php 7.1), si può usare la configurazione fornita per Docker.
 
 * eseguire `docker-compose build`
 * eseguire `docker-compose up`
-* per entrare nella macchina, eseguire `docker exec -ti progetto_php_1 bash`
-  (il nome "progetto" dipende dal nome della cartella in cui si è clonato il repo)
+* per entrare nella macchina, eseguire `docker-compose exec php bash`
 
 Per navigare l'applicazione, Occorre mappare il nome `progetto.local` su 127.0.0.1 nel proprio file hosts.
 L'applicazione sarà quindi visibile all'indirizzo `http://progetto.local:8080`.
 
-È disponibile un container per eseguire i test, con nome `progetto_phpunit_1 bash`
-(vedere nota precedente riguardo al nome effettivo).
-In questo container si possono eseguire le istruzioni relative al paragrafo precedente.
+È disponibile un container per eseguire i test, con nome `phpunit`
+In questo container si possono eseguire le istruzioni relative al paragrafo precedente
+(precedeute da `docker-compose exec phpunit`)
 
 Struttura del progetto
 ----------------------
 
-Il progetto è poco più di un'installazione base di Symfony 3.3 (con la nuova struttura di
+Il progetto è poco più di un'installazione base di Symfony 3.4 (con la nuova struttura di
 cartelle di Symfony 3.4/4.0).
 
 Le classi dominio si trovano sotto `src/Dominio`, mentre tutto il resto riguardante
@@ -81,5 +80,3 @@ Restano da implementare:
 * recupero password
 
 Ma spero comunque che il concetto espresso nella presentazione sia chiaro ugualmente.
-
-
