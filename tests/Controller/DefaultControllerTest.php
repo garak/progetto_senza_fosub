@@ -7,7 +7,7 @@ namespace Tests\Controller;
  */
 class DefaultControllerTest extends WebTestCase
 {
-    public function testHomepage()
+    public function testHomepage(): void
     {
         $this->login();
         $this->client->request('GET', '/');

@@ -13,10 +13,4 @@ final class ConfermaRegistrazioneHandler extends AbstractUtenteHandler
         $this->repository->add($utente);
         $command->utente = $utente;
     }
-
-    // trick necessario fino al merge di https://github.com/SimpleBus/SymfonyBridge/pull/53
-    public function __invoke(ConfermaRegistrazioneCommand $command)
-    {
-        $this->handle($command);
-    }
 }

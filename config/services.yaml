@@ -8,27 +8,20 @@ services:
         autoconfigure: true
         public: false
 
+    App\:
+        resource: '%kernel.project_dir%/src/*'
+        exclude: '%kernel.project_dir%/src/{DataFixtures,Dominio,Kernel.php}'
+
     App\Controller\:
         resource: '%kernel.project_dir%/src/Controller'
         tags: ['controller.service_arguments']
-    App\EventListener\:
-        resource: '%kernel.project_dir%/src/EventListener'
-    App\Mailer\:
-        resource: '%kernel.project_dir%/src/Mailer'
-    # Questo repository deve essere pubblico, per i test
-    App\Repository\UtenteRepository:
-        public: true
-    App\Repository\:
-        resource: '%kernel.project_dir%/src/Repository'
-        exclude: '%kernel.project_dir%/src/Repository/UtenteRepository.php'
-    App\Validator\:
-        resource: '%kernel.project_dir%/src/Validator'
 
     Dominio\Progetto\Handler\:
         resource: '%kernel.project_dir%/src/Dominio/Progetto/Handler'
         exclude: '%kernel.project_dir%/src/Dominio/Progetto/Handler/*/Abstract*'
         public: true
-        tags: ['command_handler']
+        tags:
+            - { name: 'command_handler', register_public_methods: true }
 
     # alias
     Dominio\Progetto\Mailer\MailerInterface: '@App\Mailer\Mailer'

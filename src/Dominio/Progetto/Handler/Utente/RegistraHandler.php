@@ -44,10 +44,4 @@ final class RegistraHandler extends AbstractUtenteHandler
         $this->repository->add($utente);
         $this->mailer->inviaEmailRegistrazione($utente);
     }
-
-    // trick necessario fino al merge di https://github.com/SimpleBus/SymfonyBridge/pull/53
-    public function __invoke(RegistraCommand $command)
-    {
-        $this->handle($command);
-    }
 }

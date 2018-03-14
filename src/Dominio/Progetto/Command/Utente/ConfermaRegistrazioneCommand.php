@@ -14,9 +14,6 @@ class ConfermaRegistrazioneCommand
      */
     public $utente;
 
-    /**
-     * @param string
-     */
     public function __construct(string $token)
     {
         $this->token = $token;

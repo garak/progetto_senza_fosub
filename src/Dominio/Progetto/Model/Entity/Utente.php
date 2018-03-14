@@ -52,13 +52,6 @@ class Utente implements UserInterface
      */
     private $tokenConferma;
 
-    /**
-     * @param Uuid   $id
-     * @param string $email
-     * @param string $nome
-     * @param string $cognome
-     * @param string $password
-     */
     public function __construct(
         Uuid $id,
         string $email,
@@ -80,7 +73,7 @@ class Utente implements UserInterface
         return $this->email;
     }
 
-    public function aggiorna(string $email, string $nome, string $cognome)
+    public function aggiorna(string $email, string $nome, string $cognome): void
     {
         $this->email = $email;
         $this->nome = $nome;
@@ -127,17 +120,11 @@ class Utente implements UserInterface
         $this->attivo = true;
     }
 
-    /**
-     * @return string|null
-     */
     public function getTokenConferma(): ?string
     {
         return $this->tokenConferma;
     }
 
-    /**
-     * @return \DateTime|null
-     */
     public function getUltimoLogin(): ?\DateTime
     {
         return $this->ultimoLogin;
@@ -172,7 +159,7 @@ class Utente implements UserInterface
     {
     }
 
-    public function getSalt()
+    public function getSalt(): void
     {
     }
 }

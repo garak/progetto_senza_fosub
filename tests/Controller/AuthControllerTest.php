@@ -10,7 +10,7 @@ use Tests\SerializableException;
  */
 class AuthControllerTest extends WebTestCase
 {
-    public function testLoginErrore()
+    public function testLoginErrore(): void
     {
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->filter('button[type="submit"]')->form();
@@ -23,7 +23,7 @@ class AuthControllerTest extends WebTestCase
         $this->assertCount(1, $crawler->filter('div.alert-danger'));
     }
 
-    public function testUtenteNonAttivo()
+    public function testUtenteNonAttivo(): void
     {
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->filter('button[type="submit"]')->form();
@@ -36,7 +36,7 @@ class AuthControllerTest extends WebTestCase
         $this->assertCount(1, $crawler->filter('div.alert-danger:contains("non attivo")'));
     }
 
-    public function testErroreGenericoInSessione()
+    public function testErroreGenericoInSessione(): void
     {
         $session = $this->container->get('session');
         $session->set('_security.last_error', new SerializableException('errore...'));
@@ -48,7 +48,7 @@ class AuthControllerTest extends WebTestCase
         $this->assertCount(1, $crawler->filter('div.alert-danger:contains("Errore inatteso")'));
     }
 
-    public function testLoginOk()
+    public function testLoginOk(): void
     {
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->filter('button[type="submit"]')->form();
@@ -61,7 +61,7 @@ class AuthControllerTest extends WebTestCase
         $this->assertCount(0, $crawler->filter('div.alert-danger'));
     }
 
-    public function testUtenteAutenticatoNonPuoVedereLogin()
+    public function testUtenteAutenticatoNonPuoVedereLogin(): void
     {
         $this->login();
         $this->client->request('GET', '/login');

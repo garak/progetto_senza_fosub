@@ -31,9 +31,8 @@ final class AuthController extends AbstractController
 
     private function getLoginError(LoggerInterface $logger, Request $request): ?\Exception
     {
-        $session = $request->getSession();
-        $error = $session->get(Security::AUTHENTICATION_ERROR);
-        $session->remove(Security::AUTHENTICATION_ERROR);
+        $error = $request->getSession()->get(Security::AUTHENTICATION_ERROR);
+        $request->getSession()->remove(Security::AUTHENTICATION_ERROR);
         // see https://github.com/symfony/symfony/issues/837#issuecomment-3000155
         if ($error instanceof \Exception && !$error instanceof AuthenticationException) {
             $logger->log('error', $error->getMessage());

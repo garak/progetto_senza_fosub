@@ -4,7 +4,7 @@ namespace Tests\Controller;
 
 class RegistrazioneControllerTest extends WebTestCase
 {
-    public function testErroriFormVuota()
+    public function testErroriFormVuota(): void
     {
         $crawler = $this->client->request('GET', '/registrazione');
         $form = $crawler->selectButton('OK')->form();
@@ -17,7 +17,7 @@ class RegistrazioneControllerTest extends WebTestCase
         $this->assertCount(4, $crawler->filter('form ul li'));
     }
 
-    public function testErroreEmailNonValidaEPasswordCorta()
+    public function testErroreEmailNonValidaEPasswordCorta(): void
     {
         $crawler = $this->client->request('GET', '/registrazione');
         $form = $crawler->selectButton('OK')->form();
@@ -30,7 +30,7 @@ class RegistrazioneControllerTest extends WebTestCase
         $this->assertCount(2, $crawler->filter('form ul li'));
     }
 
-    public function testErroriEmailGiaRegistrata()
+    public function testErroriEmailGiaRegistrata(): void
     {
         $crawler = $this->client->request('GET', '/registrazione');
         $form = $crawler->selectButton('OK')->form();
@@ -43,7 +43,7 @@ class RegistrazioneControllerTest extends WebTestCase
         $this->assertCount(1, $crawler->filter('form ul li'));
     }
 
-    public function testOk()
+    public function testOk(): void
     {
         $crawler = $this->client->request('GET', '/registrazione');
         $form = $crawler->selectButton('OK')->form();
@@ -59,13 +59,13 @@ class RegistrazioneControllerTest extends WebTestCase
         $this->assertCount(1, $crawler->filter('div.alert-success'));
     }
 
-    public function testConfermaConTokekSbaglato()
+    public function testConfermaConTokekSbaglato(): void
     {
         $this->client->request('GET', '/registrazione/conferma/wrongtoken');
         $this->assertTrue($this->client->getResponse()->isClientError());
     }
 
-    public function testConferma()
+    public function testConferma(): void
     {
         $this->client->request('GET', '/registrazione/conferma/afaketoken');
         $crawler = $this->client->followRedirect();
@@ -75,21 +75,21 @@ class RegistrazioneControllerTest extends WebTestCase
         //$this->assertCount(1, $crawler->filter('.navbar-right i.fa-user-circle'));
     }
 
-    public function testUtenteGiaLoggatoNonVedeRegistrazione()
+    public function testUtenteGiaLoggatoNonVedeRegistrazione(): void
     {
         $this->login();
         $this->client->request('GET', '/registrazione');
         $this->assertTrue($this->client->getResponse()->isRedirect());
     }
 
-    public function testUtenteGiaLoggatoNonVedeOk()
+    public function testUtenteGiaLoggatoNonVedeOk(): void
     {
         $this->login();
         $this->client->request('GET', '/registrazione/ok');
         $this->assertTrue($this->client->getResponse()->isRedirect());
     }
 
-    public function testUtenteGiaLoggatoNonPuoConfermare()
+    public function testUtenteGiaLoggatoNonPuoConfermare(): void
     {
         $this->login();
         $this->client->request('GET', '/registrazione/conferma/afaketoken');
