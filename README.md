@@ -22,7 +22,7 @@ Nota: se si preferisce usare Docker, vedere il relativo paragrafo più avanti.
 * eseguire `bin/console doctrine:schema:update --force`
 * eseguire `bin/console doctrine:fixtures:load -n`
 * sistemare i permessi di `var/cache` e `var/log`
-  ([vedi documentazione](http://symfony.com/doc/3.3/setup/file_permissions.html))
+  ([vedi documentazione](http://symfony.com/doc/3.4/setup/file_permissions.html))
 
 Test
 ----
@@ -47,8 +47,8 @@ Per navigare l'applicazione, Occorre mappare il nome `progetto.local` su 127.0.0
 L'applicazione sarà quindi visibile all'indirizzo `http://progetto.local:8080`.
 
 È disponibile un container per eseguire i test, con nome `phpunit`
-In questo container si possono eseguire le istruzioni relative al paragrafo precedente
-(precedeute da `docker-compose exec phpunit`)
+In questo container si possono eseguire le istruzioni relative al paragrafo precedente.
+Per esempio: `docker-compose exec phpunit console doctrine:database:create`.
 
 Struttura del progetto
 ----------------------

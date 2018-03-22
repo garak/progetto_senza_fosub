@@ -5,6 +5,3 @@ services:
         autoconfigure: true
         public: false
 
-    test.userprovider:
-        alias: security.user.provider.concrete.progetto
-        public: true

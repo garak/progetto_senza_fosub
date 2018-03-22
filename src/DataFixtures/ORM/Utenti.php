@@ -2,12 +2,12 @@
 
 namespace App\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\AbstractFixture;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Dominio\Progetto\Model\Entity\Utente;
 use Ramsey\Uuid\Uuid;
 
-final class Utenti extends AbstractFixture
+final class Utenti extends Fixture
 {
     public function load(ObjectManager $manager): void
     {

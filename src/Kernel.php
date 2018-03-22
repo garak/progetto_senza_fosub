@@ -24,6 +24,16 @@ class Kernel extends BaseKernel
         }
     }
 
+    public function getCacheDir(): string
+    {
+        return $this->getProjectDir().'/var/cache/'.$this->environment;
+    }
+
+    public function getLogDir(): string
+    {
+        return $this->getProjectDir().'/var/log';
+    }
+
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
     {
         $container->setParameter('container.autowiring.strict_mode', true);
@@ -47,15 +57,5 @@ class Kernel extends BaseKernel
             $routes->import($confDir.'/routes/'.$this->environment.'/**/*'.self::CONFIG_EXTS, '/', 'glob');
         }
         $routes->import($confDir.'/routes'.self::CONFIG_EXTS, '/', 'glob');
-    }
-
-    public function getCacheDir(): string
-    {
-        return $this->getProjectDir().'/var/cache/'.$this->environment;
-    }
-
-    public function getLogDir(): string
-    {
-        return $this->getProjectDir().'/var/log';
     }
 }
