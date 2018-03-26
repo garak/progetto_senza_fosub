@@ -1,4 +1,4 @@
-FROM php:7.1-fpm
+FROM php:7.2-fpm
 
 MAINTAINER Massimiliano Arione <garakkio@gmail.com>
 
@@ -12,7 +12,7 @@ RUN "date"
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql
-RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ vim mysql-client netcat-openbsd
+RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ vim mysql-client
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install intl
 
@@ -42,7 +42,5 @@ RUN git config --global core.excludesfile ~/.gitignore
 
 COPY php-fpm.conf /etc/php-fpm.conf
 COPY create-database.sh /usr/local/bin/
-
-ENTRYPOINT ["create-database.sh", "php-fpm"]
 
 WORKDIR /user/progetto
