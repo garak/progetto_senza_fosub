@@ -41,6 +41,5 @@ USER user
 RUN git config --global core.excludesfile ~/.gitignore
 
 COPY php-fpm.conf /etc/php-fpm.conf
-COPY create-database.sh /usr/local/bin/
 
 WORKDIR /user/progetto
