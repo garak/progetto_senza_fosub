@@ -22,7 +22,6 @@
         "simple-bus/symfony-bridge": "^5.1",
         "symfony/asset": "^3.4",
         "symfony/console": "^3.4",
-        "symfony/flex": "^1.0",
         "symfony/form": "^3.4",
         "symfony/framework-bundle": "^3.4",
         "symfony/lts": "3",
@@ -46,6 +45,7 @@
         "symfony/css-selector": "^3.4",
         "symfony/debug-bundle": "^3.4",
         "symfony/dotenv": "^3.4",
+        "symfony/flex": "^1.0",
         "symfony/phpunit-bridge": "^3.4",
         "symfony/profiler-pack": "^1.0"
     },
