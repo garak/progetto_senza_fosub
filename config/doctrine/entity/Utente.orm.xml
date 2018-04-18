@@ -20,7 +20,7 @@
                 <option name="default">0</option>
             </options>
         </field>
-        <field name="ultimoLogin" type="datetime" nullable="true"/>
-        <field name="creato" type="datetime"/>
+        <field name="ultimoLogin" type="datetime_immutable" nullable="true"/>
+        <field name="creato" type="datetime_immutable"/>
     </entity>
 </doctrine-mapping>

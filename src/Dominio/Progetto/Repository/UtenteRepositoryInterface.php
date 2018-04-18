@@ -3,20 +3,15 @@
 namespace Dominio\Progetto\Repository;
 
 use Dominio\Progetto\Model\Entity\Utente;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 
 interface UtenteRepositoryInterface
 {
     public function add(Utente $utente, bool $flush = true);
 
-    public function get(Uuid $id): Utente;
+    public function get(UuidInterface $id): Utente;
 
-    /**
-     * @param string $email
-     *
-     * @return Utente|null
-     */
-    public function findByEmail(string $email);
+    public function findByEmail(string $email): ?Utente;
 
     public function getByToken(string $token): Utente;
 }

@@ -2,13 +2,13 @@
 
 namespace Dominio\Progetto\Model\Entity;
 
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class Utente implements UserInterface
 {
     /**
-     * @var Uuid
+     * @var UuidInterface
      */
     private $id;
 
@@ -38,12 +38,12 @@ class Utente implements UserInterface
     private $cognome;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface
      */
     private $creato;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface
      */
     private $ultimoLogin;
 
@@ -53,7 +53,7 @@ class Utente implements UserInterface
     private $tokenConferma;
 
     public function __construct(
-        Uuid $id,
+        UuidInterface $id,
         string $email,
         string $nome,
         string $cognome,
@@ -63,7 +63,7 @@ class Utente implements UserInterface
         $this->email = $email;
         $this->nome = $nome;
         $this->cognome = $cognome;
-        $this->creato = new \DateTime();
+        $this->creato = new \DateTimeImmutable();
         $this->tokenConferma = bin2hex(random_bytes(21));
         $this->password = $password;
     }
@@ -105,7 +105,7 @@ class Utente implements UserInterface
         return $this->cognome;
     }
 
-    public function getId(): Uuid
+    public function getId(): UuidInterface
     {
         return $this->id;
     }
@@ -125,12 +125,12 @@ class Utente implements UserInterface
         return $this->tokenConferma;
     }
 
-    public function getUltimoLogin(): ?\DateTime
+    public function getUltimoLogin(): ?\DateTimeInterface
     {
         return $this->ultimoLogin;
     }
 
-    public function getCreato(): \DateTime
+    public function getCreato(): \DateTimeInterface
     {
         return $this->creato;
     }
@@ -145,7 +145,7 @@ class Utente implements UserInterface
         $this->tokenConferma = $token ?? bin2hex(random_bytes(21));
     }
 
-    public function setUltimoLogin(\DateTime $tempo): void
+    public function setUltimoLogin(\DateTimeInterface $tempo): void
     {
         $this->ultimoLogin = $tempo;
     }

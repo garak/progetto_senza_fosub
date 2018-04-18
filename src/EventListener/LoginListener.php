@@ -34,7 +34,7 @@ class LoginListener implements EventSubscriberInterface
     {
         $utente = $event->getAuthenticationToken()->getUser();
         if ($utente instanceof UserInterface) {
-            $utente->setUltimoLogin(new \DateTime());
+            $utente->setUltimoLogin(new \DateTimeImmutable());
             $this->repository->add($utente);
         }
     }

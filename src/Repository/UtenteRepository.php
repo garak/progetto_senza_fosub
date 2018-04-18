@@ -6,7 +6,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use Dominio\Progetto\Model\Entity\Utente;
 use Dominio\Progetto\Repository\UtenteRepositoryInterface;
-use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidInterface;
 use Symfony\Component\Security\Core\Exception\DisabledException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
@@ -33,7 +33,7 @@ class UtenteRepository implements UtenteRepositoryInterface, UserProviderInterfa
         }
     }
 
-    public function get(Uuid $id): Utente
+    public function get(UuidInterface $id): Utente
     {
         return $this
             ->getBuilder()
