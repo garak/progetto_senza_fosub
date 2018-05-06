@@ -24,6 +24,7 @@ services:
             - { name: 'command_handler', register_public_methods: true }
 
     # alias
+    Dominio\Progetto\Encoder\PasswordEncoderInterface: '@App\Encoder\PasswordEncoder'
     Dominio\Progetto\Mailer\MailerInterface: '@App\Mailer\Mailer'
     Dominio\Progetto\Repository\UtenteRepositoryInterface: '@App\Repository\UtenteRepository'
     SimpleBus\Message\Bus\MessageBus: '@command_bus'

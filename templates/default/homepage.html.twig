@@ -7,4 +7,10 @@
     <p>
         It could work!
     </p>
+    <p>
+        Utente: {{ app.user }} <a href="{{ path('cambia_password') }}" class="btn btn-info">cambia password</a>
+    </p>
+    <p>
+        <a href="{{ path('logout') }}" class="btn btn-primary">logout</a>
+    </p>
 {% endblock %}

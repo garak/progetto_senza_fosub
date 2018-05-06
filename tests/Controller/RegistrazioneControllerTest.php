@@ -2,6 +2,9 @@
 
 namespace Tests\Controller;
 
+/**
+ * @group functional
+ */
 class RegistrazioneControllerTest extends WebTestCase
 {
     public function testErroriFormVuota(): void

@@ -3,18 +3,18 @@
 namespace Dominio\Progetto\Handler\Utente;
 
 use Dominio\Progetto\Command\Utente\RegistraCommand;
+use Dominio\Progetto\Encoder\PasswordEncoderInterface;
 use Dominio\Progetto\Mailer\MailerInterface;
 use Dominio\Progetto\Model\Entity\Utente;
 use Dominio\Progetto\Repository\UtenteRepositoryInterface;
 use Ramsey\Uuid\Uuid;
-use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 final class RegistraHandler extends AbstractUtenteHandler
 {
     /**
-     * @var EncoderFactoryInterface
+     * @var PasswordEncoderInterface
      */
-    private $encoderFactory;
+    private $encoder;
 
     /**
      * @var MailerInterface
@@ -23,23 +23,22 @@ final class RegistraHandler extends AbstractUtenteHandler
 
     public function __construct(
         UtenteRepositoryInterface $repository,
-        EncoderFactoryInterface $encoderFactory,
+        PasswordEncoderInterface $encoder,
         MailerInterface $mailer
     ) {
         parent::__construct($repository);
-        $this->encoderFactory = $encoderFactory;
+        $this->encoder = $encoder;
         $this->mailer = $mailer;
     }
 
     public function handle(RegistraCommand $command): void
     {
-        $encoder = $this->encoderFactory->getEncoder(Utente::class);
         $utente = new Utente(
             Uuid::uuid4(),
             $command->email,
             $command->nome,
             $command->cognome,
-            $encoder->encodePassword($command->password, null)
+            $this->encoder->encode($command->password)
         );
         $this->repository->add($utente);
         $this->mailer->inviaEmailRegistrazione($utente);

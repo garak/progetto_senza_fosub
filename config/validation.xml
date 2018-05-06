@@ -3,6 +3,19 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/constraint-mapping http://symfony.com/schema/dic/constraint-mapping/constraint-mapping-1.0.xsd">
 
+    <class name="Dominio\Progetto\Command\Utente\CambiaPasswordCommand">
+        <property name="vecchiaPassword">
+            <constraint name="Symfony\Component\Security\Core\Validator\Constraints\UserPassword" />
+        </property>
+        <property name="nuovaPassword">
+            <constraint name="NotBlank" />
+            <constraint name="Length">
+                <option name="min">8</option>
+                <option name="max">255</option>
+            </constraint>
+        </property>
+    </class>
+
     <class name="Dominio\Progetto\Command\Utente\RegistraCommand">
         <constraint name="App\Validator\Constraints\UniqueUser"/>
         <property name="email">

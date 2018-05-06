@@ -29,4 +29,5 @@ security:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/registrazione, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/reset, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/cambia-password, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/, roles: ROLE_USER }

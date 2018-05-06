@@ -72,11 +72,11 @@ Al momento il progetto implementa solo queste feature:
 
 * registrazione
 * login
+* cambio password
 
 Restano da implementare:
 
 * gestione del profilo
-* cambio password
 * recupero password
 
 Ma spero comunque che il concetto espresso nella presentazione sia chiaro ugualmente.
