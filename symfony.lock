@@ -1,4 +1,7 @@
 {
+    "composer/xdebug-handler": {
+        "version": "1.1.0"
+    },
     "doctrine/doctrine-migrations-bundle": {
         "version": "1.2",
         "recipe": {

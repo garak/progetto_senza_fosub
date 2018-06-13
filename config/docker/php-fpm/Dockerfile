@@ -1,3 +1,4 @@
+FROM composer:1.6 AS composer
 FROM php:7.2-fpm
 
 MAINTAINER Massimiliano Arione <garakkio@gmail.com>
@@ -8,13 +9,12 @@ RUN apt-get update && apt-get install -y git unzip
 # Set timezone
 RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
-RUN "date"
 
 # Install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql
 RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ vim mysql-client
 RUN docker-php-ext-configure intl
-RUN docker-php-ext-install intl
+RUN docker-php-ext-install intl ctype mbstring iconv
 
 # Install xdebug
 RUN pecl install xdebug
@@ -29,9 +29,7 @@ RUN echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-x
 RUN echo "xdebug.file_link_format=xdebug://%f@%l" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 # Install Composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-RUN chmod +x /usr/local/bin/composer
-RUN composer --version
+COPY --from=composer /usr/bin/composer /usr/local/bin/composer
 
 # Configure user
 RUN mkdir /user

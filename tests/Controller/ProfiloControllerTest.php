@@ -31,6 +31,5 @@ class ProfiloControllerTest extends WebTestCase
         $this->client->submit($form);
         $this->client->followRedirect();
         $this->assertTrue($this->client->getResponse()->isOk());
-
     }
 }
