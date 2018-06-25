@@ -17,6 +17,9 @@
     },
     "require": {
         "php": "^7.2",
+        "ext-ctype": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
         "ramsey/uuid-doctrine": "^1.2",
         "sensio/framework-extra-bundle": "^4.0",
         "simple-bus/symfony-bridge": "^5.1",
@@ -54,6 +57,7 @@
         "symfony/polyfill-intl-icu": "*",
         "symfony/polyfill-mbstring": "*",
         "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php71": "*",
         "symfony/polyfill-php70": "*"
     },
     "scripts": {

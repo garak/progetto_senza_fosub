@@ -9,11 +9,11 @@ services:
     php:
         build: config/docker/php-fpm
         volumes:
-            - ./:/user/progetto
-            - $HOME/.bashrc:/user/.bashrc
-            - $HOME/.composer:/user/.composer
-            - $HOME/.gitignore:/user/.gitignore
-            - $HOME/.vimrc:/user/.vimrc
+            - ./:/user/progetto:delegated
+            - $HOME/.bashrc:/user/.bashrc:delegated
+            - $HOME/.composer:/user/.composer:delegated
+            - $HOME/.gitignore:/user/.gitignore:delegated
+            - $HOME/.vimrc:/user/.vimrc:delegated
         working_dir: /user/progetto
         ports:
             - 9000:9000
@@ -37,15 +37,11 @@ services:
         links:
             - php
         volumes:
-            - ./:/user/progetto
+            - ./:/user/progetto:delegated
     phpunit:
         build: config/docker/php-cli
         volumes:
             - ./:/user/progetto
-            - $HOME/.bashrc:/user/.bashrc
-            - $HOME/.composer:/user/.composer
-            - $HOME/.gitignore:/user/.gitignore
-            - $HOME/.vimrc:/user/.vimrc
         working_dir: /user/progetto
         tty: true
         links:
