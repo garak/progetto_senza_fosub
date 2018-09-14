@@ -64,7 +64,7 @@ class Utente implements UserInterface
         $this->nome = $nome;
         $this->cognome = $cognome;
         $this->creato = new \DateTimeImmutable();
-        $this->tokenConferma = bin2hex(random_bytes(21));
+        $this->tokenConferma = \bin2hex(\random_bytes(21));
         $this->password = $password;
     }
 
@@ -142,7 +142,7 @@ class Utente implements UserInterface
 
     public function resetPassword(string $token = null): void
     {
-        $this->tokenConferma = $token ?? bin2hex(random_bytes(21));
+        $this->tokenConferma = $token ?? \bin2hex(\random_bytes(21));
     }
 
     public function setUltimoLogin(\DateTimeInterface $tempo): void

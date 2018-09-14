@@ -29,7 +29,6 @@ services:
             - APP_TEST_DATABASE_URL=mysql://root:root@database/symfony_test?charset=utf8mb4
             - APP_MAILER_URL=null://127.0.0.1
             - APP_SECRET=ThisIsNotReallySecretButOK
-            - APP_DOMAIN=progetto.local
     nginx:
         build: config/docker/nginx
         ports:
@@ -41,19 +40,16 @@ services:
     phpunit:
         build: config/docker/php-cli
         volumes:
-            - ./:/user/progetto
+            - ./:/user/progetto:delegated
         working_dir: /user/progetto
         tty: true
         links:
             - database
         environment:
             - PATH=./bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-            - COLUMNS=190
-            - LINES=42
             - APP_ENV=test
             - APP_DEBUG=1
             - APP_TEST_DATABASE_URL=mysql://root:root@database/symfony_test?charset=utf8mb4
             - APP_MAILER_URL=null://127.0.0.1
             - APP_SECRET=ThisIsNotReallySecretButOK
-            - APP_DOMAIN=progetto.local:8080
 

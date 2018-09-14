@@ -1,4 +1,4 @@
-FROM composer:1.6 AS composer
+FROM composer:1.7 AS composer
 FROM php:7.2-fpm
 
 MAINTAINER Massimiliano Arione <garakkio@gmail.com>
@@ -11,10 +11,9 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 # Install PHP extensions
-RUN docker-php-ext-install pdo pdo_mysql
 RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ vim mysql-client
 RUN docker-php-ext-configure intl
-RUN docker-php-ext-install intl ctype mbstring iconv
+RUN docker-php-ext-install pdo pdo_mysql intl ctype mbstring iconv
 
 # Install xdebug
 RUN pecl install xdebug

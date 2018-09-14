@@ -4,12 +4,11 @@ namespace App\Controller;
 
 use App\Form\RegistrazioneType;
 use Dominio\Progetto\Command;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 /**
@@ -18,8 +17,7 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 final class RegistrazioneController extends AbstractController
 {
     /**
-     * @Route("", name="registrazione")
-     * @Method({"GET", "POST"})
+     * @Route("", name="registrazione", methods={"GET", "POST"})
      */
     public function registrazione(MessageBus $bus, Request $request): Response
     {
@@ -38,8 +36,7 @@ final class RegistrazioneController extends AbstractController
     }
 
     /**
-     * @Route("/ok", name="registrazione_ok")
-     * @Method({"GET"})
+     * @Route("/ok", name="registrazione_ok", methods="GET")
      */
     public function ok(): Response
     {
@@ -51,8 +48,7 @@ final class RegistrazioneController extends AbstractController
     }
 
     /**
-     * @Route("/conferma/{token}", name="registrazione_conferma")
-     * @Method({"GET"})
+     * @Route("/conferma/{token}", name="registrazione_conferma", methods="GET")
      */
     public function conferma(string $token, MessageBus $bus, Request $request): Response
     {
@@ -63,7 +59,7 @@ final class RegistrazioneController extends AbstractController
         $bus->handle($command);
         $token = new UsernamePasswordToken($command->utente, null, 'main');
         $session = $request->getSession();
-        $session->set('_security_main', serialize($token));
+        $session->set('_security_main', \serialize($token));
 
         return $this->redirectToRoute('homepage');
     }

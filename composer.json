@@ -21,13 +21,12 @@
         "ext-intl": "*",
         "ext-mbstring": "*",
         "ramsey/uuid-doctrine": "^1.2",
-        "sensio/framework-extra-bundle": "^4.0",
+        "sensio/framework-extra-bundle": "^5.0",
         "simple-bus/symfony-bridge": "^5.1",
         "symfony/asset": "^3.4",
         "symfony/console": "^3.4",
         "symfony/form": "^3.4",
         "symfony/framework-bundle": "^3.4",
-        "symfony/lts": "3",
         "symfony/monolog-bundle": "^3.1",
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^3.4",
@@ -53,6 +52,7 @@
         "symfony/profiler-pack": "^1.0"
     },
     "replace": {
+        "paragonie/random_compat": "*",
         "symfony/polyfill-ctype": "*",
         "symfony/polyfill-intl-icu": "*",
         "symfony/polyfill-mbstring": "*",
@@ -62,12 +62,16 @@
     },
     "scripts": {
         "auto-scripts": {
-            "cache:clear": "symfony-cmd",
-            "assets:install --symlink --relative %PUBLIC_DIR%": "symfony-cmd"
+            "cache:clear": "symfony-cmd"
         }
     },
     "config": {
         "bin-dir": "bin",
         "sort-packages": true
+    },
+    "extra": {
+        "symfony": {
+            "require": "3.4.*"
+        }
     }
 }

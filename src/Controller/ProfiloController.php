@@ -4,18 +4,16 @@ namespace App\Controller;
 
 use App\Form\CambioPasswordType;
 use Dominio\Progetto\Command\Utente as Command;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SimpleBus\Message\Bus\MessageBus;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 final class ProfiloController extends AbstractController
 {
     /**
-     * @Route("/cambia-password", name="cambia_password")
-     * @Method({"GET", "PUT"})
+     * @Route("/cambia-password", name="cambia_password", methods={"GET", "PUT"})
      */
     public function cambiaPassword(MessageBus $bus, Request $request): Response
     {

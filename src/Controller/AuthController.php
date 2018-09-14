@@ -3,19 +3,17 @@
 namespace App\Controller;
 
 use Psr\Log\LoggerInterface;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Security;
 
 final class AuthController extends AbstractController
 {
     /**
-     * @Route("/login", name="login")
-     * @Method("GET")
+     * @Route("/login", name="login", methods="GET")
      */
     public function login(LoggerInterface $logger, Request $request): Response
     {

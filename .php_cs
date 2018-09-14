@@ -16,6 +16,7 @@ return PhpCsFixer\Config::create()
         'list_syntax' => ['syntax' => 'short'],
         'ordered_imports' => true,
         'declare_strict_types' => false,
+        'native_function_invocation' => true,
     ])
     ->setFinder($finder)
 ;

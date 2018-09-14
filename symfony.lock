@@ -11,8 +11,17 @@
             "ref": "c1431086fec31f17fbcfe6d6d7e92059458facc1"
         }
     },
+    "doctrine/event-manager": {
+        "version": "v1.0.0"
+    },
     "doctrine/migrations": {
         "version": "v1.6.2"
+    },
+    "doctrine/persistence": {
+        "version": "v1.0.1"
+    },
+    "doctrine/reflection": {
+        "version": "v1.0.0"
     },
     "ocramius/proxy-manager": {
         "version": "2.1.1"
@@ -25,9 +34,6 @@
             "version": "1.0",
             "ref": "cc1afd81841db36fbef982fe56b48ade6716fac4"
         }
-    },
-    "symfony/lts": {
-        "version": "v3"
     },
     "symfony/proxy-manager-bridge": {
         "version": "v3.4.4"

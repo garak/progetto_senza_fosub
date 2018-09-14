@@ -72,7 +72,7 @@ class UtenteRepository implements UtenteRepositoryInterface, UserProviderInterfa
     public function loadUserByUsername($username): Utente
     {
         if (null === $utente = $this->findByEmail($username)) {
-            throw new UsernameNotFoundException(sprintf('Utente "%s" non trovato', $username));
+            throw new UsernameNotFoundException(\sprintf('Utente "%s" non trovato', $username));
         }
         if (!$utente->isAttivo()) {
             throw new DisabledException('Utente non attivo.');
@@ -83,9 +83,9 @@ class UtenteRepository implements UtenteRepositoryInterface, UserProviderInterfa
 
     public function refreshUser(UserInterface $utente): Utente
     {
-        $class = get_class($utente);
+        $class = \get_class($utente);
         if (!$this->supportsClass($class)) {
-            throw new UnsupportedUserException(sprintf('Istanza di "%s" non supportata.', $class));
+            throw new UnsupportedUserException(\sprintf('Istanza di "%s" non supportata.', $class));
         }
 
         return $this->get($utente->getId());
