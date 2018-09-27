@@ -5,6 +5,11 @@ services:
         autoconfigure: true
         public: false
 
+    Fixtures\:
+        resource: '../fixtures/*'
+        tags: ['doctrine.fixture.orm']
+
     test.userprovider:
         alias: security.user.provider.concrete.progetto
         public: true
+

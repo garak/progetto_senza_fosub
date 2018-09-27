@@ -3,9 +3,10 @@
 namespace Dominio\Progetto\Model\Entity;
 
 use Ramsey\Uuid\UuidInterface;
+use Symfony\Component\Security\Core\User\EquatableInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-class Utente implements UserInterface
+class Utente implements UserInterface, EquatableInterface
 {
     /**
      * @var UuidInterface
@@ -161,5 +162,17 @@ class Utente implements UserInterface
 
     public function getSalt(): void
     {
+    }
+
+    public function isEqualTo(UserInterface $user): bool
+    {
+        if ($this->password !== $user->getPassword()) {
+            return false;
+        }
+        if ($this->email !== $user->getUsername()) {
+            return false;
+        }
+
+        return true;
     }
 }
