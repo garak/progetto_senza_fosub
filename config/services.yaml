@@ -9,11 +9,11 @@ services:
         public: false
 
     App\:
-        resource: '%kernel.project_dir%/src/*'
-        exclude: '%kernel.project_dir%/src/{DataFixtures,Dominio,Kernel.php}'
+        resource: '%kernel.project_dir%/src/App'
+        exclude: '%kernel.project_dir%/src/App/{DataFixtures,Dominio,Kernel.php}'
 
     App\Controller\:
-        resource: '%kernel.project_dir%/src/Controller'
+        resource: '%kernel.project_dir%/src/App/Controller'
         tags: ['controller.service_arguments']
 
     Dominio\Progetto\Handler\:

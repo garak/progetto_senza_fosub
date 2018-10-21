@@ -10,7 +10,7 @@
         }
     ],
     "autoload": {
-        "psr-4": { "Dominio\\": "src/Dominio", "App\\": "src/" }
+        "psr-4": { "Dominio\\": "src/Dominio", "App\\": "src/App/" }
     },
     "autoload-dev": {
         "psr-4": { "Fixtures\\": "fixtures/", "Tests\\": "tests/" }
@@ -62,7 +62,8 @@
     },
     "scripts": {
         "auto-scripts": {
-            "cache:clear": "symfony-cmd"
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
         }
     },
     "config": {

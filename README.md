@@ -57,7 +57,7 @@ Il progetto è poco più di un'installazione base di Symfony 3.4 (con la nuova s
 cartelle di Symfony 3.4/4.0).
 
 Le classi dominio si trovano sotto `src/Dominio`, mentre tutto il resto riguardante
-l'implementazione del progetto è nelle restanti sottocartelle di `src`.
+l'implementazione del progetto è sotto `src/App`.
 
 I template si trovano sotto `templates`.
 
