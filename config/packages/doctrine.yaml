@@ -2,8 +2,6 @@ doctrine:
     dbal:
         url: '%env(APP_DATABASE_URL)%'
         server_version: 5.7
-        types:
-            uuid: Ramsey\Uuid\Doctrine\UuidType
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         auto_mapping: false
