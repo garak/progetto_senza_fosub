@@ -1,10 +1,11 @@
 security:
     encoders:
+        App\Security\User\User: bcrypt
         Dominio\Progetto\Model\Entity\Utente: bcrypt
 
     providers:
         progetto:
-            id: App\Repository\UtenteRepository
+            id: App\Security\User\UserProvider
 
     firewalls:
         dev:

@@ -2,9 +2,9 @@
 
 namespace App\EventListener;
 
+use Dominio\Progetto\Model\Entity\Utente;
 use Dominio\Progetto\Repository\UtenteRepositoryInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
 use Symfony\Component\Security\Http\SecurityEvents;
 
@@ -32,8 +32,8 @@ class LoginListener implements EventSubscriberInterface
 
     public function onSecurityInteractiveLogin(InteractiveLoginEvent $event): void
     {
-        $utente = $event->getAuthenticationToken()->getUser();
-        if ($utente instanceof UserInterface) {
+        $utente = $event->getAuthenticationToken()->getUser()->getUtente();
+        if ($utente instanceof Utente) {
             $utente->setUltimoLogin(new \DateTimeImmutable());
             $this->repository->add($utente);
         }

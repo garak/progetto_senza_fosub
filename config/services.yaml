@@ -1,7 +1,3 @@
-parameters:
-    locale: it
-    domain: '%env(APP_DOMAIN)%'
-
 services:
     _defaults:
         autowire: true
@@ -10,7 +6,7 @@ services:
 
     App\:
         resource: '%kernel.project_dir%/src/App'
-        exclude: '%kernel.project_dir%/src/App/{DataFixtures,Dominio,Kernel.php}'
+        exclude: '%kernel.project_dir%/src/App/{Dominio,Kernel.php,Security/User/User.php}'
 
     App\Controller\:
         resource: '%kernel.project_dir%/src/App/Controller'

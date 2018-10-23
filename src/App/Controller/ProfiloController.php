@@ -17,9 +17,9 @@ final class ProfiloController extends AbstractController
      */
     public function cambiaPassword(MessageBus $bus, Request $request): Response
     {
-        $command = new Command\CambiaPasswordCommand($this->getUser());
-        $form = $this->createForm(CambioPasswordType::class, $command, ['method' => 'PUT']);
-        if ($form->handleRequest($request)->isSubmitted() && $form->isValid()) {
+        $command = new Command\CambiaPasswordCommand($this->getUser()->getUtente());
+        $form = $this->createForm(CambioPasswordType::class, $command, ['method' => 'PUT'])->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
             $bus->handle($command);
 
             return $this->redirectToRoute('homepage');

@@ -3,10 +3,8 @@
 namespace Dominio\Progetto\Model\Entity;
 
 use Ramsey\Uuid\UuidInterface;
-use Symfony\Component\Security\Core\User\EquatableInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 
-class Utente implements UserInterface, EquatableInterface
+class Utente
 {
     /**
      * @var UuidInterface
@@ -81,11 +79,6 @@ class Utente implements UserInterface, EquatableInterface
         $this->cognome = $cognome;
     }
 
-    public function getUsername(): string
-    {
-        return $this->email;
-    }
-
     public function getEmail(): string
     {
         return $this->email;
@@ -149,30 +142,5 @@ class Utente implements UserInterface, EquatableInterface
     public function setUltimoLogin(\DateTimeInterface $tempo): void
     {
         $this->ultimoLogin = $tempo;
-    }
-
-    public function getRoles(): array
-    {
-        return ['ROLE_USER'];
-    }
-
-    public function eraseCredentials(): void
-    {
-    }
-
-    public function getSalt(): void
-    {
-    }
-
-    public function isEqualTo(UserInterface $user): bool
-    {
-        if ($this->password !== $user->getPassword()) {
-            return false;
-        }
-        if ($this->email !== $user->getUsername()) {
-            return false;
-        }
-
-        return true;
     }
 }
