@@ -51,7 +51,7 @@ class RegistrazioneControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/registrazione');
         $form = $crawler->selectButton('OK')->form();
         $this->client->enableProfiler();
-        $crawler = $this->client->submit($form, [
+        $this->client->submit($form, [
             'registrazione[email]' => 'ciccio@example.org',
             'registrazione[password]' => 'segreta1',
             'registrazione[nome]' => 'Ciccio',
@@ -72,10 +72,8 @@ class RegistrazioneControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/registrazione/conferma/afaketoken');
         $crawler = $this->client->followRedirect();
-        $crawler = $this->client->followRedirect();
         $this->assertTrue($this->client->getResponse()->isOk());
-        // TODO il menu utente non c'è ancora
-        //$this->assertCount(1, $crawler->filter('.navbar-right i.fa-user-circle'));
+        $this->assertCount(1, $crawler->filter('p:contains("Utente: daConfermare@example.com")'));
     }
 
     public function testUtenteGiaLoggatoNonVedeRegistrazione(): void

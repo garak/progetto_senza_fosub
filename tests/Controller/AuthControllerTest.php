@@ -14,7 +14,7 @@ class AuthControllerTest extends WebTestCase
     {
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->filter('button[type="submit"]')->form();
-        $crawler = $this->client->submit($form, [
+        $this->client->submit($form, [
             '_username' => 'nonexistant@foo.bar',
             '_password' => 'blablablah',
         ]);
@@ -27,7 +27,7 @@ class AuthControllerTest extends WebTestCase
     {
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->filter('button[type="submit"]')->form();
-        $crawler = $this->client->submit($form, [
+        $this->client->submit($form, [
             '_username' => 'daConfermare@example.com',
             '_password' => 'bellaperte',
         ]);
@@ -52,7 +52,7 @@ class AuthControllerTest extends WebTestCase
     {
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->filter('button[type="submit"]')->form();
-        $crawler = $this->client->submit($form, [
+        $this->client->submit($form, [
             '_username' => 'utente1@example.com',
             '_password' => 'ciaone',
         ]);

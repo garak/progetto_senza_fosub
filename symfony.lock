@@ -368,6 +368,9 @@
             "ref": "3b3b56a9a5988dc58ff90725071cc3a6711e470e"
         }
     },
+    "symfony/polyfill-apcu": {
+        "version": "v1.9.0"
+    },
     "symfony/process": {
         "version": "v4.1.6"
     },
