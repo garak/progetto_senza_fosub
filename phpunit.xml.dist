@@ -19,7 +19,7 @@
         <env name="APP_DEBUG" value="1" />
         <env name="APP_MAILER_URL" value="null://localhost" />
         <env name="APP_SECRET" value="aDummySecretForTests" />
-        <env name="APP_TEST_DATABASE_URL" value="mysql://root@127.0.0.1/symfony_test?charset=utf8mb4" />
+        <env name="APP_DATABASE_URL" value="mysql://root@127.0.0.1/symfony_test?charset=utf8mb4" />
         <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak_vendors" />
     </php>
 

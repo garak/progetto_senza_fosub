@@ -37,7 +37,7 @@ Docker
 ------
 
 Se non si dispone del software necessario sulla macchina locale (per esempio non si ha
-php 7.1), si può usare la configurazione fornita per Docker.
+php 7.2), si può usare la configurazione fornita per Docker.
 
 * eseguire `docker-compose build`
 * eseguire `docker-compose up`
