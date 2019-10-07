@@ -45,8 +45,9 @@ final class User implements UserInterface, EquatableInterface
     {
     }
 
-    public function getSalt(): void
+    public function getSalt(): ?string
     {
+        return null;
     }
 
     public function isEqualTo(UserInterface $user): bool

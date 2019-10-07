@@ -11,7 +11,7 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 # Install PHP extensions
-RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ vim mysql-client
+RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev g++ vim default-mysql-client
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install pdo pdo_mysql intl ctype mbstring iconv
 

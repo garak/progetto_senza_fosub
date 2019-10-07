@@ -1,5 +1,5 @@
 /.env
-/.php_cs.cache
+/.*.cache
 /bin/*
 !bin/console
 /phpunit.xml

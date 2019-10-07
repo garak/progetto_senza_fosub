@@ -11,4 +11,4 @@ RUN { \
       echo 'collation-server=utf8mb4_unicode_ci'; \
       echo '[client]'; \
       echo 'default-character-set=utf8mb4'; \
-    } > /etc/mysql/conf.d/charset.cnf
+    } >> /etc/mysql/conf.d/charset.cnf
