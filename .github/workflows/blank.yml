@@ -1,0 +1,32 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-18.04
+    
+    steps:
+      - uses: actions/checkout@v1
+      - name: install vendor
+        env:
+          APP_DATABASE_URL: sqlite:///%kernel.project_dir%/var/data.db 
+          APP_ENV: test
+          APP_DEBUG: 1
+          APP_SECRET: wow
+          APP_MAILER_URL: null://127.0.0.1
+        run: |
+          composer install -qoan --no-progress --no-suggest
+      - name: run tests
+        env:
+          APP_DATABASE_URL: sqlite:///%kernel.project_dir%/var/data.db 
+          APP_ENV: test
+          APP_DEBUG: 1
+          APP_SECRET: wow
+          APP_MAILER_URL: null://127.0.0.1
+        run: |
+          bin/console doctrine:schema:create -n
+          bin/console doctrine:schema:update --force -n
+          bin/console doctrine:fixtures:load -n
+          phpunit
