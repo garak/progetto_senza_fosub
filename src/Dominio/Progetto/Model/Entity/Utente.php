@@ -6,50 +6,23 @@ use Ramsey\Uuid\UuidInterface;
 
 class Utente
 {
-    /**
-     * @var UuidInterface
-     */
-    private $id;
+    public UuidInterface $id;
 
-    /**
-     * @var string
-     */
-    private $email;
+    public string $email;
 
-    /**
-     * @var string
-     */
-    private $password;
+    public string $password;
 
-    /**
-     * @var bool
-     */
-    protected $attivo = false;
+    public bool $attivo = false;
 
-    /**
-     * @var string
-     */
-    private $nome;
+    public string $nome;
 
-    /**
-     * @var string
-     */
-    private $cognome;
+    public string $cognome;
 
-    /**
-     * @var \DateTimeInterface
-     */
-    private $creato;
+    public \DateTimeInterface $creato;
 
-    /**
-     * @var \DateTimeInterface
-     */
-    private $ultimoLogin;
+    public ?\DateTimeInterface $ultimoLogin;
 
-    /**
-     * @var string
-     */
-    private $tokenConferma;
+    public ?string $tokenConferma;
 
     public function __construct(
         UuidInterface $id,
@@ -79,68 +52,13 @@ class Utente
         $this->cognome = $cognome;
     }
 
-    public function getEmail(): string
-    {
-        return $this->email;
-    }
-
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
-
-    public function getNome(): string
-    {
-        return $this->nome;
-    }
-
-    public function getCognome(): string
-    {
-        return $this->cognome;
-    }
-
-    public function getId(): UuidInterface
-    {
-        return $this->id;
-    }
-
-    public function isAttivo(): bool
-    {
-        return $this->attivo;
-    }
-
     public function attiva(): void
     {
         $this->attivo = true;
     }
 
-    public function getTokenConferma(): ?string
-    {
-        return $this->tokenConferma;
-    }
-
-    public function getUltimoLogin(): ?\DateTimeInterface
-    {
-        return $this->ultimoLogin;
-    }
-
-    public function getCreato(): \DateTimeInterface
-    {
-        return $this->creato;
-    }
-
-    public function setPassword(string $password): void
-    {
-        $this->password = $password;
-    }
-
-    public function resetPassword(string $token = null): void
+    public function resetPassword(?string $token = null): void
     {
         $this->tokenConferma = $token ?? \bin2hex(\random_bytes(21));
-    }
-
-    public function setUltimoLogin(\DateTimeInterface $tempo): void
-    {
-        $this->ultimoLogin = $tempo;
     }
 }

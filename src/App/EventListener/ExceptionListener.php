@@ -12,7 +12,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 /**
  * Intercetta eccezioni relative al dominio e lancia invece eccezioni http.
  */
-class ExceptionListener implements EventSubscriberInterface
+final class ExceptionListener implements EventSubscriberInterface
 {
     public static function getSubscribedEvents(): array
     {

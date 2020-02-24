@@ -11,12 +11,9 @@ use Symfony\Component\Security\Http\SecurityEvents;
 /**
  * Imposta il tempo di "ultimoLogin" per l'utente.
  */
-class LoginListener implements EventSubscriberInterface
+final class LoginListener implements EventSubscriberInterface
 {
-    /**
-     * @var UtenteRepositoryInterface
-     */
-    private $repository;
+    private UtenteRepositoryInterface $repository;
 
     public function __construct(UtenteRepositoryInterface $repository)
     {
@@ -34,7 +31,7 @@ class LoginListener implements EventSubscriberInterface
     {
         $utente = $event->getAuthenticationToken()->getUser()->getUtente();
         if ($utente instanceof Utente) {
-            $utente->setUltimoLogin(new \DateTimeImmutable());
+            $utente->ultimoLogin = new \DateTimeImmutable();
             $this->repository->add($utente);
         }
     }

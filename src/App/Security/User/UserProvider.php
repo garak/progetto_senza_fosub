@@ -11,8 +11,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 final class UserProvider implements UserProviderInterface
 {
-    /** @var UtenteRepositoryInterface */
-    private $utenteRepository;
+    private UtenteRepositoryInterface $utenteRepository;
 
     public function __construct(UtenteRepositoryInterface $utenteRepository)
     {
@@ -24,7 +23,7 @@ final class UserProvider implements UserProviderInterface
         if (null === ($utente = $this->utenteRepository->findByEmail($username))) {
             throw new UsernameNotFoundException(\sprintf('Utente "%s" non trovato', $username));
         }
-        if (!$utente->isAttivo()) {
+        if (!$utente->attivo) {
             throw new DisabledException('Utente non attivo.');
         }
 
@@ -43,6 +42,6 @@ final class UserProvider implements UserProviderInterface
             throw new UnsupportedUserException(\sprintf('Istanza di "%s" non supportata.', $class));
         }
 
-        return new User($this->utenteRepository->get($user->getUtente()->getId()));
+        return new User($this->utenteRepository->get($user->getUtente()->id));
     }
 }

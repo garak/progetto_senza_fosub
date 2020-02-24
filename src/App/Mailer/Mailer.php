@@ -9,15 +9,9 @@ use Symfony\Component\Templating\EngineInterface as Twig;
 
 final class Mailer implements MailerInterface
 {
-    /**
-     * @var Swift
-     */
-    private $swift;
+    private Swift $swift;
 
-    /**
-     * @var Twig
-     */
-    private $twig;
+    private Twig $twig;
 
     public function __construct(Swift $swift, Twig $twig)
     {
@@ -31,7 +25,7 @@ final class Mailer implements MailerInterface
         $message = $this->swift
             ->createMessage()
             ->setFrom('noreply@progetto.local')   // TODO spostare in conf e iniettare
-            ->setTo($utente->getEmail())
+            ->setTo($utente->email)
             ->setBody($body)
             ->setSubject('Conferma registrazione')
         ;
@@ -44,7 +38,7 @@ final class Mailer implements MailerInterface
         $message = $this->swift
             ->createMessage()
             ->setFrom('noreply@progetto.local')   // TODO vedi sopra
-            ->setTo($utente->getEmail())
+            ->setTo($utente->email)
             ->setBody($body)
             ->setSubject('Reset della password')
         ;

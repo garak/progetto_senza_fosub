@@ -8,10 +8,7 @@ use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
 
 class PasswordEncoder implements PasswordEncoderInterface
 {
-    /**
-     * @var EncoderFactoryInterface
-     */
-    private $encoderFactory;
+    private EncoderFactoryInterface$encoderFactory;
 
     public function __construct(EncoderFactoryInterface $encoderFactory)
     {

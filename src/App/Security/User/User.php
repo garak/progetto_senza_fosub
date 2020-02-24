@@ -8,8 +8,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 final class User implements UserInterface, EquatableInterface
 {
-    /** @var Utente */
-    private $utente;
+    private Utente $utente;
 
     public function __construct(Utente $utente)
     {
@@ -33,12 +32,12 @@ final class User implements UserInterface, EquatableInterface
 
     public function getPassword(): string
     {
-        return $this->utente->getPassword();
+        return $this->utente->password;
     }
 
     public function getUsername(): string
     {
-        return $this->utente->getEmail();
+        return $this->utente->email;
     }
 
     public function eraseCredentials(): void

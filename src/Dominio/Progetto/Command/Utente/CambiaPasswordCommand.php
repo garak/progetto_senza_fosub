@@ -21,9 +21,6 @@ class CambiaPasswordCommand
      */
     public $utente;
 
-    /**
-     * @param Utente $utente
-     */
     public function __construct(Utente $utente)
     {
         $this->utente = $utente;

@@ -5,22 +5,22 @@ namespace Dominio\Progetto\Command\Utente;
 class RegistraCommand
 {
     /**
-     * @var string
+     * @var mixed
      */
     public $email;
 
     /**
-     * @var string
+     * @var mixed
      */
     public $password;
 
     /**
-     * @var string
+     * @var mixed
      */
     public $nome;
 
     /**
-     * @var string
+     * @var mixed
      */
     public $cognome;
 }

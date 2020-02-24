@@ -8,12 +8,9 @@ use Dominio\Progetto\Model\Entity\Utente;
 use Dominio\Progetto\Repository\UtenteRepositoryInterface;
 use Ramsey\Uuid\UuidInterface;
 
-class UtenteRepository implements UtenteRepositoryInterface
+final class UtenteRepository implements UtenteRepositoryInterface
 {
-    /**
-     * @var EntityManagerInterface
-     */
-    private $manager;
+    private EntityManagerInterface $manager;
 
     public function __construct(EntityManagerInterface $manager)
     {

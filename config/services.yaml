@@ -8,10 +8,6 @@ services:
         resource: '%kernel.project_dir%/src/App'
         exclude: '%kernel.project_dir%/src/App/{Dominio,Kernel.php,Security/User/User.php}'
 
-    App\Controller\:
-        resource: '%kernel.project_dir%/src/App/Controller'
-        tags: ['controller.service_arguments']
-
     Dominio\Progetto\Handler\:
         resource: '%kernel.project_dir%/src/Dominio/Progetto/Handler'
         exclude: '%kernel.project_dir%/src/Dominio/Progetto/Handler/*/Abstract*'

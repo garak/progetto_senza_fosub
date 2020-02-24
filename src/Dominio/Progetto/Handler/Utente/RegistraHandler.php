@@ -11,15 +11,9 @@ use Ramsey\Uuid\Uuid;
 
 final class RegistraHandler extends AbstractUtenteHandler
 {
-    /**
-     * @var PasswordEncoderInterface
-     */
-    private $encoder;
+    private PasswordEncoderInterface $encoder;
 
-    /**
-     * @var MailerInterface
-     */
-    private $mailer;
+    private MailerInterface $mailer;
 
     public function __construct(
         UtenteRepositoryInterface $repository,

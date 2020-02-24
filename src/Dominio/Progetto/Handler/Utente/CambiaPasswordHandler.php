@@ -6,12 +6,9 @@ use Dominio\Progetto\Command\Utente\CambiaPasswordCommand;
 use Dominio\Progetto\Encoder\PasswordEncoderInterface;
 use Dominio\Progetto\Repository\UtenteRepositoryInterface;
 
-class CambiaPasswordHandler extends AbstractUtenteHandler
+final class CambiaPasswordHandler extends AbstractUtenteHandler
 {
-    /**
-     * @var PasswordEncoderInterface
-     */
-    protected $encoder;
+    protected PasswordEncoderInterface $encoder;
 
     public function __construct(UtenteRepositoryInterface $repository, PasswordEncoderInterface $encoder)
     {
@@ -21,7 +18,7 @@ class CambiaPasswordHandler extends AbstractUtenteHandler
 
     public function handle(CambiaPasswordCommand $command): void
     {
-        $command->utente->setPassword($this->encoder->encode($command->nuovaPassword));
+        $command->utente->password = $this->encoder->encode($command->nuovaPassword);
         $this->repository->add($command->utente);
     }
 }

@@ -9,12 +9,9 @@ use Symfony\Component\Validator\ConstraintValidator;
 /**
  * Validator for UniqueUser constraint.
  */
-class UniqueUserValidator extends ConstraintValidator
+final class UniqueUserValidator extends ConstraintValidator
 {
-    /**
-     * @var UtenteRepository
-     */
-    private $utenteRepository;
+    private UtenteRepository $utenteRepository;
 
     public function __construct(UtenteRepository $userRepository)
     {

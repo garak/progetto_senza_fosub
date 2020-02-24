@@ -6,10 +6,7 @@ use Dominio\Progetto\Repository\UtenteRepositoryInterface;
 
 abstract class AbstractUtenteHandler
 {
-    /**
-     * @var UtenteRepositoryInterface
-     */
-    protected $repository;
+    protected UtenteRepositoryInterface $repository;
 
     public function __construct(UtenteRepositoryInterface $repository)
     {
