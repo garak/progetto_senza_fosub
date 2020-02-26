@@ -10,6 +10,12 @@ esempi pratici
 [![video](https://i.vimeocdn.com/video/670922426_295x166.jpg)](https://vimeo.com/246059701)
 <a href="https://www.slideshare.net/garak/disinstallare-fos-user-bundle-e-vivere-felici"><img src="https://image.slidesharecdn.com/versionesocialdisinstallarefosuserbundleeviverefelici-171022101158/95/disinstallare-fos-user-bundle-e-vivere-felici-1-638.jpg" width="295"></a>
 
+> **agiornamento**
+>
+> A febbraio 2020 ho riutilizzato questo progetto per un altro talk, tenuto stavolta al
+> [PUG Roma](https://github.com/pug-roma/eventi/issues/20).
+> Con l'occasione, ho aggiornato tutto a PHP 7.4
+
 Installazione
 -------------
 
