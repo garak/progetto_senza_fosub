@@ -1,5 +1,7 @@
 <?php
 
+namespace Dominio\Progetto\Model\ValueObject;
+
 final class Stato
 {
     private const KO = -1;
