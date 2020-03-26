@@ -33,7 +33,7 @@
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/templating": "^3.4",
         "symfony/twig-bundle": "^3.4",
-        "symfony/validator": "^3.4",
+        "symfony/validator": "^4.2",
         "symfony/yaml": "^3.4"
     },
     "require-dev": {
