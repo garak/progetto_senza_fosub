@@ -4,3 +4,4 @@ twig:
     paths: ['%kernel.project_dir%/templates']
     form_themes:
         - 'bootstrap_3_layout.html.twig'
+    exception_controller: ~

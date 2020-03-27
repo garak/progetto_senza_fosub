@@ -76,6 +76,6 @@ final class RegistrazioneController extends AbstractController
         $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
         $session = $request->getSession();
         $session->set('_security_main', \serialize($token));
-        $dispatcher->dispatch('security.interactive_login', new InteractiveLoginEvent($request, $token));
+        $dispatcher->dispatch(new InteractiveLoginEvent($request, $token));
     }
 }

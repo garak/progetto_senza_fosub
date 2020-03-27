@@ -21,7 +21,6 @@ security:
                 target: /
             anonymous: true
             switch_user: true
-            logout_on_user_change: true
             remember_me:
                 secret: '%env(APP_SECRET)%'
                 lifetime: 604800

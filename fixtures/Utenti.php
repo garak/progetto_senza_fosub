@@ -3,7 +3,7 @@
 namespace Fixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Dominio\Progetto\Model\Entity\Utente;
 use Ramsey\Uuid\Uuid;
 

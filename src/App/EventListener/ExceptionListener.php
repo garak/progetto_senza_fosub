@@ -5,7 +5,7 @@ namespace App\EventListener;
 use Doctrine\ORM\NoResultException;
 use Ramsey\Uuid\Exception\InvalidUuidStringException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 
@@ -21,13 +21,13 @@ final class ExceptionListener implements EventSubscriberInterface
         ];
     }
 
-    public function onKernelException(GetResponseForExceptionEvent $event): void
+    public function onKernelException(ExceptionEvent $event): void
     {
-        $exception = $event->getException();
+        $exception = $event->getThrowable();
         if ($exception instanceof NoResultException) {
-            $event->setException(new NotFoundHttpException('Not Found', $exception));
+            $event->setThrowable(new NotFoundHttpException('Not Found', $exception));
         } elseif ($exception instanceof InvalidUuidStringException) {
-            $event->setException(new NotFoundHttpException('Not Found (invalid Uuid)', $exception));
+            $event->setThrowable(new NotFoundHttpException('Not Found (invalid Uuid)', $exception));
         }
     }
 }

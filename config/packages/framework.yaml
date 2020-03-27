@@ -6,12 +6,11 @@ framework:
         mapping:
             paths: 
                 - '%kernel.project_dir%/config/validation.xml'
-    templating:
-        engines: ['twig']
     trusted_hosts: ~
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id: ~
+        cookie_secure: auto
     fragments: ~
     http_method_override: true
     #assets:

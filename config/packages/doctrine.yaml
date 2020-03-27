@@ -1,11 +1,7 @@
 doctrine:
     dbal:
         url: '%env(resolve:APP_DATABASE_URL)%'
-        server_version: 5.7
-        charset: utf8mb4
-        default_table_options:
-            charset: utf8mb4
-            collate: utf8mb4_unicode_ci
+        server_version: '5.7'
     orm:
         auto_generate_proxy_classes: '%kernel.debug%'
         auto_mapping: false

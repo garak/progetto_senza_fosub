@@ -1,4 +1,0 @@
-framework:
-    templating:
-        engines: ['twig']
-

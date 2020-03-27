@@ -10,7 +10,7 @@ class DefaultControllerTest extends WebTestCase
     public function testHomepage(): void
     {
         $this->login();
-        $this->client->request('GET', '/');
-        $this->assertTrue($this->client->getResponse()->isOk());
+        self::$client->request('GET', '/');
+        $this->assertTrue(self::$client->getResponse()->isOk());
     }
 }

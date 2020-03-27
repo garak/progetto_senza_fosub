@@ -5,7 +5,7 @@ namespace App\Mailer;
 use Dominio\Progetto\Mailer\MailerInterface;
 use Dominio\Progetto\Model\Entity\Utente;
 use Swift_Mailer as Swift;
-use Symfony\Component\Templating\EngineInterface as Twig;
+use Twig\Environment as Twig;
 
 final class Mailer implements MailerInterface
 {
