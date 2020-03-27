@@ -29,7 +29,7 @@
         "symfony/framework-bundle": "^3.4",
         "symfony/monolog-bundle": "^3.3",
         "symfony/orm-pack": "^1.0",
-        "symfony/security-bundle": "^3.4",
+        "symfony/security-bundle": "^4.0",
         "symfony/swiftmailer-bundle": "^3.2",
         "symfony/templating": "^3.4",
         "symfony/twig-bundle": "^3.4",
