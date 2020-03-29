@@ -1,0 +1,70 @@
+name: Full CI process for Symfony 5
+on:
+    push:
+        branches:
+            - master
+env:
+    APP_DATABASE_URL: mysql://root:root@127.0.0.1/symfony_test
+    APP_ENV: test
+    APP_DEBUG: 1
+    APP_SECRET: thisisjustapipeline
+    APP_MAILER_URL: null://127.0.0.1
+jobs:
+    symfony:
+        name: Symfony 5.0 (PHP ${{ matrix.php-versions }})
+        # https://hub.docker.com/_/ubuntu/
+        runs-on: ubuntu-18.04
+        services:
+            # https://docs.docker.com/samples/library/mysql/
+            mysql:
+                image: mysql:5.7
+                env:
+                    MYSQL_ROOT_PASSWORD: root
+                ports:
+                    - 3306:3306
+                options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+        strategy:
+            fail-fast: true
+            matrix:
+                php-versions: ['7.3', '7.4']
+        steps:
+            # —— Setup Github actions 🐙 —————————————————————————————————————————————
+            # https://github.com/actions/checkout (official)
+            - name: Checkout
+              uses: actions/checkout@v2
+
+            # https://github.com/shivammathur/setup-php (community)
+            - name: Setup PHP, extensions and composer with shivammathur/setup-php
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: ${{ matrix.php-versions }}
+                  extensions: mbstring, xml, ctype, iconv, intl, pdo_sqlite, dom, filter, json, pdo
+              env:
+                  update: true
+
+            # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
+            - name: Get composer cache directory
+              id: composer-cache
+              run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+            - name: Cache composer dependencies
+              uses: actions/cache@v1
+              with:
+                  path: ${{ steps.composer-cache.outputs.dir }}
+                  key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+                  restore-keys: ${{ runner.os }}-composer-
+
+            - name: Install Composer dependencies
+              run: composer install -qoan --no-progress --no-suggest
+
+            # —— Symfony 🎵 ——————————————————————————————————————————————————————————
+            - name: Prepare database
+              run: |
+                  bin/console doctrine:schema:create -n
+                  bin/console doctrine:schema:update --force -n
+                  bin/console doctrine:fixtures:load -n
+
+            ## —— Tests ✅ ———————————————————————————————————————————————————————————
+            - name: Run tests
+              run: |
+                  bin/phpunit
