@@ -1,3 +1,5 @@
+EXEC = docker-compose exec
+
 %:
 	@:
 
@@ -15,31 +17,35 @@ stop: ## stop docker
 	docker-compose stop
 
 console: ## execute console with possible parameters
-	docker-compose exec php console $(call args,)
+	${EXEC} php console $(call args,)
 
 dbupdate: ## update database
-	docker-compose exec php console do:c:clear-m && docker-compose exec php console do:s:u --force && docker-compose exec phpunit console do:s:u --force
+	${EXEC} php console do:da:cr -n --if-not-exists
+	${EXEC} phpunit console do:da:cr -n --if-not-exists
+	${EXEC} php console do:c:clear-m
+	${EXEC} php console do:s:u --force
+	${EXEC} phpunit console do:s:u --force
 
 load: ## load fixtures
-	docker-compose exec phpunit console do:fi:lo -n
+	${EXEC} phpunit console do:fi:lo -n
 
 test: ## execute test
-	docker-compose exec phpunit phpunit --stop-on-failure
+	${EXEC} phpunit phpunit --stop-on-failure
 
 coverage: ## execute test with coverage
-	docker-compose exec phpunit phpdbg -qrr bin/phpunit --coverage-html var/build
+	${EXEC} phpunit phpdbg -qrr bin/phpunit --coverage-html var/build
 
 update: ## update vendor
-	docker-compose exec php composer update
+	${EXEC} php composer update
 
 asset: ## compile assets
-	docker-compose exec php node_modules/.bin/encore dev --watch
+	${EXEC} php node_modules/.bin/encore dev --watch
 
 cs: ## execute fix coding standard
-	docker-compose exec php php-cs-fixer fix -v
+	${EXEC} php php-cs-fixer fix -v
 
 stan: ## execute static analysis (requires phpstan locally installed)
-	docker-compose exec php bin/phpstan analyse -lmax src tests
+	${EXEC} php bin/phpstan analyse -lmax src tests
 
 npm: ## install frontend dependencies
-	docker-compose exec php npm install
+	${EXEC} php npm install

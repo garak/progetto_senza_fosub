@@ -19,6 +19,7 @@ jobs:
             mysql:
                 image: mysql:5.7
                 env:
+                    MYSQL_DATABASE: symfony_test
                     MYSQL_ROOT_PASSWORD: root
                 ports:
                     - 3306:3306
@@ -42,7 +43,7 @@ jobs:
               env:
                   update: true
 
-            # —— Composer 🧙‍️ —————————————————————————————————————————————————————————
+            # —— Composer 🧙 —————————————————————————————————————————————————————————
             - name: Get composer cache directory
               id: composer-cache
               run: echo "::set-output name=dir::$(composer config cache-files-dir)"
@@ -58,9 +59,6 @@ jobs:
               run: composer install -qoan --no-progress --no-suggest
 
             # —— Symfony 🎵 ——————————————————————————————————————————————————————————
-            - name: Create database
-              run: bin/console doctrine:schema:create -n
-
             - name: Prepare database
               run: |
                   bin/console doctrine:schema:update --force -n
