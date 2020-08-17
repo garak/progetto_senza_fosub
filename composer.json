@@ -36,7 +36,7 @@
         "symfony/yaml": "^4.4"
     },
     "require-dev": {
-        "beelab/test-bundle": "^4.3",
+        "beelab/test-bundle": "^5.0",
         "dama/doctrine-test-bundle": "^6.3",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "friendsofphp/php-cs-fixer": "^2.16",
