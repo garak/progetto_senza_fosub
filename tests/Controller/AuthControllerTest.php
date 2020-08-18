@@ -2,9 +2,6 @@
 
 namespace Tests\Controller;
 
-use Symfony\Component\BrowserKit\Cookie;
-use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;
-
 /**
  * @group functional
  */
@@ -18,9 +15,9 @@ class AuthControllerTest extends WebTestCase
             '_username' => 'nonexistant@foo.bar',
             '_password' => 'blablablah',
         ]);
-        $crawler = self::$client->followRedirect();
-        $this->assertTrue(self::$client->getResponse()->isOk());
-        $this->assertCount(1, $crawler->filter('div.alert-danger'));
+        self::$client->followRedirect();
+        self::assertResponseIsSuccessful();
+        self::assertSelectorExists('div.alert-danger');
     }
 
     public function testUtenteNonAttivo(): void
@@ -31,17 +28,17 @@ class AuthControllerTest extends WebTestCase
             '_username' => 'daConfermare@example.com',
             '_password' => 'bellaperte',
         ]);
-        $crawler = self::$client->followRedirect();
-        $this->assertTrue(self::$client->getResponse()->isOk());
-        $this->assertCount(1, $crawler->filter('div.alert-danger:contains("non attivo")'));
+        self::$client->followRedirect();
+        self::assertResponseIsSuccessful();
+        self::assertSelectorExists('div.alert-danger:contains("non attivo")');
     }
 
     public function testErroreGenericoInSessione(): void
     {
-        $this->setSessionException();
-        $crawler = self::$client->request('GET', '/login');
-        $this->assertTrue(self::$client->getResponse()->isOk());
-        $this->assertCount(1, $crawler->filter('div.alert-danger:contains("errore...")'));
+        self::setSessionException();
+        self::$client->request('GET', '/login');
+        self::assertResponseIsSuccessful();
+        self::assertSelectorExists('div.alert-danger:contains("error")');
     }
 
     public function testLoginOk(): void
@@ -52,24 +49,15 @@ class AuthControllerTest extends WebTestCase
             '_username' => 'utente1@example.com',
             '_password' => 'ciaone',
         ]);
-        $crawler = self::$client->followRedirect();
-        $this->assertTrue(self::$client->getResponse()->isOk());
-        $this->assertCount(0, $crawler->filter('div.alert-danger'));
+        self::$client->followRedirect();
+        self::assertResponseIsSuccessful();
+        self::assertSelectorNotExists('div.alert-danger');
     }
 
     public function testUtenteAutenticatoNonPuoVedereLogin(): void
     {
-        $this->login();
+        self::login();
         self::$client->request('GET', '/login');
-        $this->assertTrue(self::$client->getResponse()->isRedirect());
-    }
-
-    private function setSessionException(): void
-    {
-        $session = static::$container->get('session');
-        $session->set('_security.last_error', new AuthenticationServiceException('errore...'));
-        $session->save();
-        $cookie = new Cookie($session->getName(), $session->getId());
-        self::$client->getCookieJar()->set($cookie);
+        self::assertResponseRedirects();
     }
 }

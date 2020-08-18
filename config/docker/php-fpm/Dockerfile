@@ -1,16 +1,16 @@
-FROM composer:1.9 AS composer
+FROM composer:1.10 AS composer
 FROM php:7.4-fpm
 
 MAINTAINER Massimiliano Arione <garakkio@gmail.com>
 
 # Add packages
-RUN apt-get update && apt-get install -y --no-install-recommends git unzip ssh
+RUN apt update && apt install -y --no-install-recommends git unzip ssh
 
 # Set timezone
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 # Install PHP extensions
-RUN apt-get update && apt-get install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client gnupg libonig-dev
+RUN apt update && apt install -y --no-install-recommends zlib1g-dev libicu-dev g++ vim default-mysql-client gnupg libonig-dev
 RUN docker-php-ext-configure intl
 RUN docker-php-ext-install pdo pdo_mysql intl ctype mbstring iconv
 

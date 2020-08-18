@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 services:
     database:
         build: config/docker/mysql
@@ -25,7 +25,7 @@ services:
             - LINES=42
             - APP_ENV=dev
             - APP_DEBUG=1
-            - APP_DATABASE_URL=mysql://root:root@database/symfony?charset=utf8mb4
+            - APP_DATABASE_URL=mysql://root:root@database/symfony
             - APP_MAILER_URL=null://127.0.0.1
             - APP_SECRET=ThisIsNotReallySecretButOK
     nginx:
@@ -48,7 +48,7 @@ services:
             - PATH=./bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
             - APP_ENV=test
             - APP_DEBUG=1
-            - APP_DATABASE_URL=mysql://root:root@database/symfony_test?charset=utf8mb4
+            - APP_DATABASE_URL=mysql://root:root@database/symfony_test
             - APP_MAILER_URL=null://127.0.0.1
             - APP_SECRET=ThisIsNotReallySecretButOK
 

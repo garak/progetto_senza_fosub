@@ -17,7 +17,7 @@ class RegistrazioneControllerTest extends WebTestCase
             'registrazione[nome]' => '',
             'registrazione[cognome]' => '',
         ]);
-        $this->assertCount(4, $crawler->filter('form ul li'));
+        self::assertSelectorCounts(4, 'form ul li');
     }
 
     public function testErroreEmailNonValidaEPasswordCorta(): void
@@ -30,7 +30,7 @@ class RegistrazioneControllerTest extends WebTestCase
             'registrazione[nome]' => 'x',
             'registrazione[cognome]' => 'y',
         ]);
-        $this->assertCount(2, $crawler->filter('form ul li'));
+        self::assertSelectorCounts(2, 'form ul li');
     }
 
     public function testErroriEmailGiaRegistrata(): void
@@ -43,7 +43,7 @@ class RegistrazioneControllerTest extends WebTestCase
             'registrazione[nome]' => 'x',
             'registrazione[cognome]' => 'y',
         ]);
-        $this->assertCount(1, $crawler->filter('form ul li'));
+        self::assertSelectorCounts(1, 'form ul li');
     }
 
     public function testOk(): void
@@ -57,43 +57,43 @@ class RegistrazioneControllerTest extends WebTestCase
             'registrazione[nome]' => 'Ciccio',
             'registrazione[cognome]' => 'Panino',
         ]);
-        $this->assertMailSent(1);
-        $crawler = self::$client->followRedirect();
-        $this->assertCount(1, $crawler->filter('div.alert-success'));
+        self::assertMailSent(1);
+        self::$client->followRedirect();
+        self::assertSelectorExists('div.alert-success');
     }
 
     public function testConfermaConTokekSbaglato(): void
     {
         self::$client->request('GET', '/registrazione/conferma/wrongtoken');
-        $this->assertTrue(self::$client->getResponse()->isClientError());
+        self::assertResponseStatusCodeSame(404);
     }
 
     public function testConferma(): void
     {
         self::$client->request('GET', '/registrazione/conferma/afaketoken');
-        $crawler = self::$client->followRedirect();
-        $this->assertTrue(self::$client->getResponse()->isOk());
-        $this->assertCount(1, $crawler->filter('p:contains("Utente: daConfermare@example.com")'));
+        self::$client->followRedirect();
+        self::assertResponseIsSuccessful();
+        self::assertSelectorExists('p:contains("Utente: daConfermare@example.com")');
     }
 
     public function testUtenteGiaLoggatoNonVedeRegistrazione(): void
     {
-        $this->login();
+        self::login();
         self::$client->request('GET', '/registrazione');
-        $this->assertTrue(self::$client->getResponse()->isRedirect());
+        self::assertResponseRedirects();
     }
 
     public function testUtenteGiaLoggatoNonVedeOk(): void
     {
-        $this->login();
+        self::login();
         self::$client->request('GET', '/registrazione/ok');
-        $this->assertTrue(self::$client->getResponse()->isRedirect());
+        self::assertResponseRedirects();
     }
 
     public function testUtenteGiaLoggatoNonPuoConfermare(): void
     {
-        $this->login();
+        self::login();
         self::$client->request('GET', '/registrazione/conferma/afaketoken');
-        $this->assertTrue(self::$client->getResponse()->isRedirect());
+        self::assertResponseRedirects();
     }
 }

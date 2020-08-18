@@ -6,7 +6,7 @@ use Beelab\TestBundle\Test\WebTestCase as BeelabTestCase;
 
 abstract class WebTestCase extends BeelabTestCase
 {
-    protected function login(string $username = '', string $firewall = 'main', string $repository = ''): void
+    protected static function login(string $username = '', string $firewall = 'main', string $repository = ''): void
     {
         parent::login('utente1@example.com', $firewall, 'test.userprovider');
     }
