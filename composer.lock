@@ -1518,6 +1518,7 @@
                 "reflection",
                 "static"
             ],
+            "abandoned": "roave/better-reflection",
             "time": "2020-03-27T11:06:43+00:00"
         },
         {
@@ -2595,16 +2596,16 @@
         },
         {
             "name": "symfony/asset",
-            "version": "v4.4.11",
+            "version": "v4.4.17",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
-                "reference": "384d36d53771955d432f0e0bf6470f1c9e6a716f"
+                "reference": "627761b47f94affdd8405e65245a8e1bbb810399"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/384d36d53771955d432f0e0bf6470f1c9e6a716f",
-                "reference": "384d36d53771955d432f0e0bf6470f1c9e6a716f",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/627761b47f94affdd8405e65245a8e1bbb810399",
+                "reference": "627761b47f94affdd8405e65245a8e1bbb810399",
                 "shasum": ""
             },
             "require": {
@@ -2618,11 +2619,6 @@
                 "symfony/http-foundation": ""
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Asset\\": ""
@@ -2661,7 +2657,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-05T09:39:30+00:00"
+            "time": "2020-10-24T11:50:19+00:00"
         },
         {
             "name": "symfony/cache",
