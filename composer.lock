@@ -2591,16 +2591,16 @@
         },
         {
             "name": "symfony/asset",
-            "version": "v4.4.11",
+            "version": "v4.4.22",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/asset.git",
-                "reference": "384d36d53771955d432f0e0bf6470f1c9e6a716f"
+                "reference": "aeedecee0bce60320521083efaf6c359ad710e20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/asset/zipball/384d36d53771955d432f0e0bf6470f1c9e6a716f",
-                "reference": "384d36d53771955d432f0e0bf6470f1c9e6a716f",
+                "url": "https://api.github.com/repos/symfony/asset/zipball/aeedecee0bce60320521083efaf6c359ad710e20",
+                "reference": "aeedecee0bce60320521083efaf6c359ad710e20",
                 "shasum": ""
             },
             "require": {
@@ -2614,11 +2614,6 @@
                 "symfony/http-foundation": ""
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.4-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\Component\\Asset\\": ""
@@ -2641,7 +2636,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Symfony Asset Component",
+            "description": "Manages URL generation and versioning of web assets such as CSS stylesheets, JavaScript files and image files",
             "homepage": "https://symfony.com",
             "funding": [
                 {
@@ -2657,7 +2652,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-07-05T09:39:30+00:00"
+            "time": "2021-04-07T15:47:03+00:00"
         },
         {
             "name": "symfony/cache",
