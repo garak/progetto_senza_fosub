@@ -22,7 +22,7 @@
         "ext-mbstring": "*",
         "ramsey/uuid-doctrine": "^1.5",
         "sensio/framework-extra-bundle": "^6.1",
-        "simple-bus/symfony-bridge": "^5.3",
+        "simple-bus/symfony-bridge": "^6.1",
         "symfony/asset": "^4.4",
         "symfony/console": "^4.4",
         "symfony/form": "^4.4",
