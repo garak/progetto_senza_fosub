@@ -4,70 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "655f5f36eb509645084dc47edb95530a",
+    "content-hash": "9517e390125d1e4b8ade17478ea76837",
     "packages": [
-        {
-            "name": "beberlei/assert",
-            "version": "v3.2.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/beberlei/assert.git",
-                "reference": "d63a6943fc4fd1a2aedb65994e3548715105abcf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/beberlei/assert/zipball/d63a6943fc4fd1a2aedb65994e3548715105abcf",
-                "reference": "d63a6943fc4fd1a2aedb65994e3548715105abcf",
-                "shasum": ""
-            },
-            "require": {
-                "ext-ctype": "*",
-                "ext-json": "*",
-                "ext-mbstring": "*",
-                "ext-simplexml": "*",
-                "php": "^7"
-            },
-            "require-dev": {
-                "friendsofphp/php-cs-fixer": "*",
-                "phpstan/phpstan-shim": "*",
-                "phpunit/phpunit": ">=6.0.0 <8"
-            },
-            "suggest": {
-                "ext-intl": "Needed to allow Assertion::count(), Assertion::isCountable(), Assertion::minCount(), and Assertion::maxCount() to operate on ResourceBundles"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Assert\\": "lib/Assert"
-                },
-                "files": [
-                    "lib/Assert/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-2-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Benjamin Eberlei",
-                    "email": "kontakt@beberlei.de",
-                    "role": "Lead Developer"
-                },
-                {
-                    "name": "Richard Quadling",
-                    "email": "rquadling@gmail.com",
-                    "role": "Collaborator"
-                }
-            ],
-            "description": "Thin assertion library for input validation in business models.",
-            "keywords": [
-                "assert",
-                "assertion",
-                "validation"
-            ],
-            "time": "2019-12-19T17:51:41+00:00"
-        },
         {
             "name": "brick/math",
             "version": "0.8.15",
@@ -2392,25 +2330,25 @@
         },
         {
             "name": "simple-bus/message-bus",
-            "version": "v3.1.0",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/SimpleBus/MessageBus.git",
-                "reference": "2feb277a7b63b93ca82a854571b51503b6bbb69a"
+                "url": "https://github.com/SimpleBus/message-bus.git",
+                "reference": "160e2ce483d113aecf8e3fd2fe16a070de169fea"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleBus/MessageBus/zipball/2feb277a7b63b93ca82a854571b51503b6bbb69a",
-                "reference": "2feb277a7b63b93ca82a854571b51503b6bbb69a",
+                "url": "https://api.github.com/repos/SimpleBus/message-bus/zipball/160e2ce483d113aecf8e3fd2fe16a070de169fea",
+                "reference": "160e2ce483d113aecf8e3fd2fe16a070de169fea",
                 "shasum": ""
             },
             "require": {
-                "beberlei/assert": "^3.0",
-                "php": "^7.3",
+                "php": "^7.4 || ^8.0",
                 "psr/log": "^1.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^8.5"
+                "ergebnis/composer-normalize": "^2.11",
+                "phpunit/phpunit": "^9.3"
             },
             "type": "library",
             "autoload": {
@@ -2445,42 +2383,44 @@
                 "message",
                 "message bus"
             ],
-            "time": "2019-12-23T09:34:13+00:00"
+            "time": "2021-02-23T16:49:04+00:00"
         },
         {
             "name": "simple-bus/symfony-bridge",
-            "version": "v5.4.0",
+            "version": "v6.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/SimpleBus/SymfonyBridge.git",
-                "reference": "49ae3d9730ed97f935303baea13172d7de019f77"
+                "url": "https://github.com/SimpleBus/symfony-bridge.git",
+                "reference": "744e6e37e183c7773591426bdc30c101851d1498"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SimpleBus/SymfonyBridge/zipball/49ae3d9730ed97f935303baea13172d7de019f77",
-                "reference": "49ae3d9730ed97f935303baea13172d7de019f77",
+                "url": "https://api.github.com/repos/SimpleBus/symfony-bridge/zipball/744e6e37e183c7773591426bdc30c101851d1498",
+                "reference": "744e6e37e183c7773591426bdc30c101851d1498",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.3",
-                "simple-bus/message-bus": "^3.0.3",
-                "symfony/config": "^4.4 || ^5.0",
-                "symfony/dependency-injection": "^4.4 || ^5.0",
-                "symfony/http-kernel": "^4.4 || ^5.0",
-                "symfony/yaml": "^4.4 || ^5.0"
+                "php": "^7.4 || ^8.0",
+                "simple-bus/message-bus": "^6.0",
+                "symfony/config": "^4.4.17 || ^5.3",
+                "symfony/dependency-injection": "^4.4.17 || ^5.3",
+                "symfony/http-kernel": "^4.4 || ^5.3",
+                "symfony/yaml": "^4.4 || ^5.3"
             },
             "conflict": {
                 "zendframework/zend-code": "<3.3.1"
             },
             "require-dev": {
-                "doctrine/doctrine-bundle": "^2.0",
-                "doctrine/orm": "^2.7",
-                "phpunit/phpunit": "^8.5",
-                "simple-bus/doctrine-orm-bridge": "^5.0",
-                "symfony/framework-bundle": "^4.4 || ^5.0",
-                "symfony/monolog-bridge": "^4.4 || ^5.0",
+                "doctrine/doctrine-bundle": "^2.2",
+                "doctrine/orm": "^2.8",
+                "ergebnis/composer-normalize": "^2.11",
+                "friendsofphp/proxy-manager-lts": "^1.0",
+                "phpunit/phpunit": "^9.3",
+                "simple-bus/doctrine-orm-bridge": "^6.0",
+                "symfony/framework-bundle": "^4.4 || ^5.3",
+                "symfony/monolog-bridge": "^4.4 || ^5.3",
                 "symfony/monolog-bundle": "^3.4",
-                "symfony/proxy-manager-bridge": "^4.4 || ^5.0"
+                "symfony/proxy-manager-bridge": "^4.4 || ^5.3"
             },
             "suggest": {
                 "doctrine/doctrine-bundle": "For integration with Doctrine ORM",
@@ -2522,7 +2462,7 @@
                 "event bus",
                 "symfony"
             ],
-            "time": "2019-12-23T09:34:13+00:00"
+            "time": "2021-07-08T13:47:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
