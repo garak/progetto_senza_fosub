@@ -59,8 +59,7 @@ Per esempio: `docker-compose exec phpunit console doctrine:database:create`.
 Struttura del progetto
 ----------------------
 
-Il progetto è poco più di un'installazione base di Symfony 3.4 (con la nuova struttura di
-cartelle di Symfony 3.4/4.0).
+Il progetto è poco più di un'installazione base di Symfony 3.4 (poi portato a 4.4).
 
 Le classi dominio si trovano sotto `src/Dominio`, mentre tutto il resto riguardante
 l'implementazione del progetto è sotto `src/App`.
