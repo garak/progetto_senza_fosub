@@ -37,7 +37,7 @@
     },
     "require-dev": {
         "beelab/test-bundle": "^5.0",
-        "dama/doctrine-test-bundle": "^6.3",
+        "dama/doctrine-test-bundle": "^7.0",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "friendsofphp/php-cs-fixer": "^3.4",
         "phpunit/phpunit": "^9.3",
