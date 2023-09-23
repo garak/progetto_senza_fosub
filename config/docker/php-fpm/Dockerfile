@@ -1,4 +1,4 @@
-FROM composer:1.10 AS composer
+FROM composer:2 AS composer
 FROM php:7.4-fpm
 
 MAINTAINER Massimiliano Arione <garakkio@gmail.com>
@@ -15,7 +15,7 @@ RUN docker-php-ext-configure intl
 RUN docker-php-ext-install pdo pdo_mysql intl ctype mbstring iconv
 
 # Install xdebug
-RUN pecl install xdebug && docker-php-ext-enable xdebug
+RUN pecl install xdebug-2.9.8 && docker-php-ext-enable xdebug
 RUN { \
       echo 'error_reporting = E_ALL'; \
       echo 'display_startup_errors = On'; \

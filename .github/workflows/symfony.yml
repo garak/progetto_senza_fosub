@@ -56,7 +56,7 @@ jobs:
                   restore-keys: ${{ runner.os }}-composer-
 
             - name: Install Composer dependencies
-              run: composer install -qoan --no-progress --no-suggest
+              run: composer install -oan --no-progress --no-suggest
 
             # —— Symfony 🎵 ——————————————————————————————————————————————————————————
             - name: Prepare database
