@@ -51,7 +51,7 @@
         "symfony/flex": "^1.9",
         "symfony/phpunit-bridge": "^6.1",
         "symfony/stopwatch": "^4.4",
-        "symfony/web-profiler-bundle": "^4.4"
+        "symfony/web-profiler-bundle": "^5.0"
     },
     "replace": {
         "paragonie/random_compat": "*",
