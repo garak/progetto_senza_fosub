@@ -69,6 +69,9 @@
         }
     },
     "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        },
         "bin-dir": "bin",
         "sort-packages": true
     },
