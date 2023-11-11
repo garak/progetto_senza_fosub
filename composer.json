@@ -20,6 +20,10 @@
         "ext-ctype": "*",
         "ext-intl": "*",
         "ext-mbstring": "*",
+        "doctrine/annotations": "^1.14",
+        "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.16",
         "ramsey/uuid-doctrine": "^1.5",
         "sensio/framework-extra-bundle": "^6.1",
         "simple-bus/symfony-bridge": "^6.2",
@@ -28,7 +32,6 @@
         "symfony/form": "^4.4",
         "symfony/framework-bundle": "^4.4",
         "symfony/monolog-bundle": "^3.5",
-        "symfony/orm-pack": "^2.0",
         "symfony/security-bundle": "^4.4",
         "symfony/swiftmailer-bundle": "^3.4",
         "symfony/twig-bundle": "^4.4",
@@ -47,7 +50,8 @@
         "symfony/dotenv": "^4.4",
         "symfony/flex": "^1.9",
         "symfony/phpunit-bridge": "^6.1",
-        "symfony/profiler-pack": "^1.0"
+        "symfony/stopwatch": "^4.4",
+        "symfony/web-profiler-bundle": "^4.4"
     },
     "replace": {
         "paragonie/random_compat": "*",
@@ -65,6 +69,9 @@
         }
     },
     "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        },
         "bin-dir": "bin",
         "sort-packages": true
     },

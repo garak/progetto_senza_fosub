@@ -11,9 +11,9 @@ env:
     APP_MAILER_URL: null://127.0.0.1
 jobs:
     symfony:
-        name: Symfony 5.0 (PHP ${{ matrix.php-versions }})
+        name: Symfony 5 (PHP ${{ matrix.php-versions }})
         # https://hub.docker.com/_/ubuntu/
-        runs-on: ubuntu-18.04
+        runs-on: ubuntu-22.04
         services:
             # https://docs.docker.com/samples/library/mysql/
             mysql:
@@ -49,14 +49,14 @@ jobs:
               run: echo "::set-output name=dir::$(composer config cache-files-dir)"
 
             - name: Cache composer dependencies
-              uses: actions/cache@v1
+              uses: actions/cache@v3
               with:
                   path: ${{ steps.composer-cache.outputs.dir }}
                   key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
                   restore-keys: ${{ runner.os }}-composer-
 
             - name: Install Composer dependencies
-              run: composer install -qoan --no-progress --no-suggest
+              run: composer install -oan --no-progress --no-suggest
 
             # —— Symfony 🎵 ——————————————————————————————————————————————————————————
             - name: Prepare database
