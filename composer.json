@@ -24,7 +24,7 @@
         "doctrine/doctrine-bundle": "^2.7",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.16",
-        "ramsey/uuid-doctrine": "^1.5",
+        "ramsey/uuid-doctrine": "^2.0",
         "sensio/framework-extra-bundle": "^6.2",
         "simple-bus/symfony-bridge": "^6.2",
         "symfony/asset": "^4.4",
