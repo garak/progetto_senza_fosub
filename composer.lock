@@ -6127,16 +6127,16 @@
         },
         {
             "name": "symfony/validator",
-            "version": "v5.4.39",
+            "version": "v5.4.40",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/validator.git",
-                "reference": "8a2f9f786ae44dd22dd1bbc624767c4e9118e1fc"
+                "reference": "d536c47c62c7739f9956727d6e5d94983ed77cdb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/validator/zipball/8a2f9f786ae44dd22dd1bbc624767c4e9118e1fc",
-                "reference": "8a2f9f786ae44dd22dd1bbc624767c4e9118e1fc",
+                "url": "https://api.github.com/repos/symfony/validator/zipball/d536c47c62c7739f9956727d6e5d94983ed77cdb",
+                "reference": "d536c47c62c7739f9956727d6e5d94983ed77cdb",
                 "shasum": ""
             },
             "require": {
@@ -6199,7 +6199,8 @@
                     "Symfony\\Component\\Validator\\": ""
                 },
                 "exclude-from-classmap": [
-                    "/Tests/"
+                    "/Tests/",
+                    "/Resources/bin/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -6219,7 +6220,7 @@
             "description": "Provides tools to validate values",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/validator/tree/v5.4.39"
+                "source": "https://github.com/symfony/validator/tree/v5.4.40"
             },
             "funding": [
                 {
@@ -6235,7 +6236,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-04-27T09:31:10+00:00"
+            "time": "2024-06-01T06:14:22+00:00"
         },
         {
             "name": "symfony/var-dumper",
